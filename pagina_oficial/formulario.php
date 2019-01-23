@@ -18,6 +18,8 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <script src="sweetalert2.min.js" type="text/javascript"></script>
+    <link href="sweetalert2.min.css" type="text/css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
@@ -25,11 +27,10 @@
 
   </head>
 
-  </head>
-
   <body id="page-top">
 
     <!-- Navigation -->
+
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <div id="logo"><img src="img/logo2.png" alt="" width="195" height="100"></div>
@@ -203,24 +204,23 @@
         </div>
         <div class="row">
           <div class="col-md-8 offset-md-2">
-            <br>
-            <div class="col-md-10">
-              <label class="sr-only" for="inlineFormInputGroup"></label>
-              <div class="input-group col-md-8 offset-md-3">
-                <div class="input-group-prepend">
-                  <div class="input-group-text">
-                    <i class="fas fa-user"></i>
-                  </div>
-                </div>
-                <select class="custom-select" name="listac" id="listac">
-                  <option selected>Lista de Clientes</option>
-                   <option value="0">Nuevo Cliente</option>
-                </select>
-              </div>
-            </div>
-
+            <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
             <br>
             <form id="contactForm" name="sentMessage" novalidate="novalidate" method="POST" action="insertar.php">
+              <div class="col-md-10">
+                <label class="sr-only" for="inlineFormInputGroup"></label>
+                <div class="input-group col-md-8 offset-md-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-user"></i>
+                    </div>
+                  </div>
+                  <select class="custom-select" name="listac" id="listac">
+                     <option value="0">Nuevo Cliente</option>
+                  </select>
+                </div>
+              </div>
+              <br>
               <div class="form-row" id="div3">
                <div class="form-group col-md-6">
                  <div class="col-md-12">
@@ -231,7 +231,7 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="30" class="required" />
+                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="30" required/>
                    </div>
                  </div>
                  <br>
@@ -243,7 +243,7 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="rfc" maxlength="13" class="required"/>
+                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" maxlength="13" required="required"/>
                    </div>
                  </div>
                  <br>
@@ -255,7 +255,7 @@
                          <i class="fas fa-at"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="email" name="email"placeholder="Email" maxlength="40" class="required emai"/>
+                     <input type="text" class="form-control" id="email" name="email"placeholder="Email" data-validation-error-msg="incorrecto" maxlength="40" class="required emai"/>
                    </div>
                  </div>
                  <br>
@@ -328,13 +328,37 @@
                    <br>
                </div>
              </div>
+             <script>
+             var namePattern = "^[a-z A-Z]{4,30}$";
+             var rfcPattern = "[A-Za-z]{4,8}";
+             var emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,4}$";
+             function checkInput(idInput, pattern) {
+	              return $(idInput).val().match(pattern) ? true : false;
+
+             }
+             function checkForm (idForm) {
+            	$(idForm + " *").on("keydown", function() {
+    	          if (checkInput("#nombre", namePattern) &&
+    	               checkInput("#rfc", rfcPattern)&&
+    	               checkInput("#email", emailPattern))
+    	          {
+    		        console.log(idForm);
+    	          } else {
+    		        console.log("error");
+    	          }
+	            });
+              }
 
 
+            $(function() {
+            checkForm("#contactForm");
+            });
 
+            </script>
               <div class="clearfix"></div>
               <div class="col-md-6 offset-md-3">
                 <div id="success"></div>
-                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
+                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit"  onclick="alert('Registrado!!');" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
                 <div id="contenedor_errores"></div>
               </div>
             </form>

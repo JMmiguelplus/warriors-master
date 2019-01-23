@@ -1,4 +1,9 @@
 <?php
+
+$prueba = $_POST['listac'];
+
+echo $prueba;
+
 // Datos de la base de datos
 $cadena ="host='localhost' port='5432' dbname='registros' user='postgres' password='12345'";
 // creación de la conexión a la base de datos con pg_connect()
@@ -60,9 +65,9 @@ $cod = 'WL-'.$codigo.date("Y");
 $insertLicence = "INSERT INTO datos1(nombre,rfc, email, fecha_inicio,fecha_final,licencia,tiempo,codigo) VALUES ('$nombre','$rfc','$email','$fi','$ff','$licencia','$tiempo','$cod')";
 
 
-//echo "<br><br>".$insertLicence;
+echo "<br><br>".$insertLicence;
 //Insersiones a BD
-$var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
+//$var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
 
 // cerrar conexión de base de datos
 pg_close($conexion);
@@ -94,7 +99,7 @@ fwrite($archivo, $contenido . PHP_EOL);
 
 fclose($archivo);
 
-header('Location: index.php');
+//header('Location: index.php');
 
 
 //header("location: formulario.php");
