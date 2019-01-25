@@ -174,7 +174,6 @@
             $('#check').val('Verificar');
             $('#exampleModal').modal('hide');
             $('#checkModal').modal('show');
-            console.log(res);
             $('#nomb').html(res.nom);
             $('#rfcc').html(res.rfc);
             $('#emai').html(res.mai);
@@ -342,9 +341,9 @@
     	               checkInput("#rfc", rfcPattern)&&
     	               checkInput("#email", emailPattern))
     	          {
-    		        console.log(idForm);
+    		        //console.log(idForm);
     	          } else {
-    		        console.log("error");
+    		        //console.log("error");
     	          }
 	            });
               }
@@ -401,7 +400,7 @@
           $('#rfc').attr('readonly',false);
           $('#email').attr('readonly',false);
         }
-        console.log(asd);
+        //console.log(asd);
       });
 
     });
