@@ -62,7 +62,7 @@
       <div class="container">
         <div class="intro-text">
           <div class="intro-lead-in"></div>
-          <div class="intro-heading text-uppercase">Licencias Warriors</div>
+          <div class="intro-heading text-uppercase">Registro de Contrato</div>
         </div>
       </div>
     </header>
@@ -105,7 +105,10 @@
         </div>
         <div class="modal-body">
           <table class="table table-sm table-bordered table-dark table-striped">
-          <h4 id="Estado">Estado</h4>
+          <tr>
+            <td><h4 id="Estado">Estado</h4></td>
+            <td id="Stats"></td>
+          </tr>
           <header>
           <tr>
           </tr>
@@ -174,7 +177,6 @@
             $('#check').val('Verificar');
             $('#exampleModal').modal('hide');
             $('#checkModal').modal('show');
-            console.log(res);
             $('#nomb').html(res.nom);
             $('#rfcc').html(res.rfc);
             $('#emai').html(res.mai);
@@ -183,6 +185,21 @@
             $('#lice').html(res.lic);
             $('#time').html(res.tim);
             $('#codi').html(res.cod);
+
+
+             var f = new Date();
+             var ff = new Date(res.fcf);
+             //console.log(ff);
+            // console.log(f);
+             if(f <= ff){
+               //console.log("activo");
+               $('#Stats').addClass("bg-success");
+               $('#Stats').html("Activo");
+             }else{
+               //console.log("inactivo");
+               $('#Stats').addClass("bg-danger");
+               $('#Stats').html("Inactivo");
+             }
 
           }
         })
@@ -342,9 +359,9 @@
     	               checkInput("#rfc", rfcPattern)&&
     	               checkInput("#email", emailPattern))
     	          {
-    		        console.log(idForm);
+    		        //console.log(idForm);
     	          } else {
-    		        console.log("error");
+    		        //console.log("error");
     	          }
 	            });
               }
@@ -401,7 +418,7 @@
           $('#rfc').attr('readonly',false);
           $('#email').attr('readonly',false);
         }
-        console.log(asd);
+        //console.log(asd);
       });
 
     });
