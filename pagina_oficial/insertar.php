@@ -4,6 +4,8 @@
 $cadena ="host='localhost' port='5432' dbname='registros' user='postgres' password='12345'";
 // creación de la conexión a la base de datos con pg_connect()
 $conexion = pg_connect($cadena) or die ("No se ha podido conectar al servidor de Base de datos");
+
+//Genera Codigo de 8 digitos de forma aleatoria
 function generarCodigo($longitud)
 {
     $key = '';
@@ -99,6 +101,23 @@ pg_close($conexion);
 //        <center><p><b><?php $codigo</b></p></center>
 //        </body>
 //    </html>';
+
+<<<<<<< HEAD
+=======
+//$to = $email;
+//$subject = 'Codigo de Validacion Warriors Licences';
+//$message = '
+//    <html>
+//    <head>
+//        <title>Codigo de Validacion</title>
+//    </head>
+//        <body>
+//        <h1>Hola, para poder ingresar y visualizar los detalles de su licencia podra verificarlo con el codigo que se le proporciona acontinuacion:</h1>
+//        <br>
+//        <center><p><b><?php $codigo</b></p></center>
+//        </body>
+//    </html>';
+
 
 //mail($to, $subject, $message);
 
