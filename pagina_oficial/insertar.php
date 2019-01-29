@@ -23,7 +23,7 @@ function generarCodigo($longitud)
 //} else {//Genera Codigo de 8 digitos de forma aleatoria
 
 $list = $_POST['listac'];
-echo $list;
+echo $list."<br>";
 
 $fecha = $_POST["fecha"];
 if (isset($_POST["demo"])) {
@@ -48,10 +48,17 @@ if ($list > 0) {
     $reg["email"] = $row["email"];
     $dat[] = $reg;
   }
-  echo json_encode($dat);
+  echo json_encode($dat)."<br>";
   $nombre = $dat[0]["nombre"];
   $rfc= $dat[0]["rfc"];
   $email= $dat[0]["email"];
+
+if($demo = 'Tipo de licencia' or $licencia ='Tipo de licencia' or $tiempo = '0'){
+  echo "ESTOS CAMPOS ESTAN VACIOS";
+}else{
+  echo "CAMPOS LLENOS CORRECTAMENTE";
+}
+
 } else {
 
 $nombre = $_POST["nombre"];
@@ -80,11 +87,12 @@ if($demo == 30 or $demo == 40 or $demo == 90){
 $cod = 'WL-'.$codigo.date("Y");
 
 $insertLicence = "INSERT INTO datos1(nombre,rfc, email, fecha_inicio,fecha_final,licencia,tiempo,codigo) VALUES ('$nombre','$rfc','$email','$fi','$ff','$licencia','$tiempo','$cod')";
-header('Location: formulario.php');
+
+//header('Location: formulario.php');
 
 echo "<br><br>".$insertLicence;
 //Insersiones a BD
-$var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
+//$var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
 
 pg_close($conexion);
 //}
@@ -102,8 +110,6 @@ pg_close($conexion);
 //        </body>
 //    </html>';
 
-<<<<<<< HEAD
-=======
 //$to = $email;
 //$subject = 'Codigo de Validacion Warriors Licences';
 //$message = '

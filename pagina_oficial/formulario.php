@@ -72,16 +72,31 @@
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
-        <form name="EstadoLic" id="Estadolic" action="#" method="POST">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ingrese su condigo de licencia:</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ingrese su condigo de licencia o selecione un cliente:</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
+          <!--consulta de clientes-->
           <div class="modal-body">
 
-              <input type="text" class="form-control" name="licencia" id="licencia">
+            <div class="col-md-10">
+              <label class="sr-only" for="inlineFormInputGroup"></label>
+              <div class="input-group col-md-8 offset-md-3">
+                <div class="input-group-prepend">
+                  <div class="input-group-text">
+                    <i class="fas fa-user"></i>
+                  </div>
+                </div>
+                <select class="custom-select" name="listac" id="listac">
+                   <option value="0">Nuevo Cliente</option>
+                </select>
+ 
+              </div>
+            </div>
+            <center>o</center>
+            <input type="text" class="form-control" name="licencia" id="licencia">
 
           </div>
           <div class="modal-footer">
@@ -260,7 +275,7 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" maxlength="13" required="required"/>
+                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" maxlength="13" required/>
                    </div>
                  </div>
                  <br>
@@ -272,7 +287,7 @@
                          <i class="fas fa-at"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="email" name="email"placeholder="Email" data-validation-error-msg="incorrecto" maxlength="40" class="required emai"/>
+                     <input type="text" class="form-control" id="email" name="email"placeholder="Email" data-validation-error-msg="incorrecto" maxlength="40" required/>
                    </div>
                  </div>
                  <br>
