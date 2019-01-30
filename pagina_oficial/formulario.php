@@ -89,10 +89,11 @@
                     <i class="fas fa-user"></i>
                   </div>
                 </div>
-                <select class="custom-select" name="listac" id="listac">
-                   <option value="0">Nuevo Cliente</option>
+                <select class="custom-select" name="Consulc" id="Consulc">
+                   <option value="0">Clientes registrados</option>
                 </select>
- 
+                <script src="consultabd.js"></script>
+
               </div>
             </div>
             <center>o</center>
@@ -313,7 +314,7 @@
                          <i class="fas fa-file-signature"></i>
                        </div>
                      </div>
-                     <select class="custom-select" onchange="getNewVal(this);" name="licencia" id="country" name="licencia">
+                     <select class="custom-select" onchange="getNewVal(this);" name="licencia" id="country" >
 
                        <option selected>Tipo de licencia </option>
                        <option value="Demo">Demo</option>
@@ -408,6 +409,10 @@
         console.log(respuesta);
         $.each(respuesta,function(i, item) {
           $('#listac').append($('<option>',{
+            value:item['id_datos'],
+            text :item['nombre']
+          }));
+          $('#Consulc').append($('<option>',{
             value:item['id_datos'],
             text :item['nombre']
           }));
