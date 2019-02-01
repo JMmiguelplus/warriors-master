@@ -168,63 +168,139 @@
       </div>
     </div>
   </div>
+  <div class="modal fade" id="checkModal1" tabindex="-1" role="dialog" aria-labelledby="checkModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="checkModalLabel1">Sus licencias son:</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div id="DatosLic"></div>
+          <!-- <table class="table table-sm table-borderd table-dark table-striped">
+          <tr>
+            <td><h4 id="listaL"></h4>licencias:</td>
+          </tr>
+          <header>
+          <tr>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+            <th scope="row">Nombre:</th>
+            <td id="nomb"></td>
+              </tr>
+          <tr>
+          <th scope="row">RFC:</th>
+         <td id="rfcc"></td>
+             </tr>
+         <tr>
+          <th scope="row">Email:</th>
+         <td id="emai"></td>
+             </tr>
+         <tr>
+          <th scope="row">Fecha Inicial:</th>
+         <td id="feci"></td>
+            </tr>
+          <tr>
+          <th scope="row">Fecha Final:</th>
+         <td id="fecf"></td>
+            </tr>
+          <tr>
+          <th scope="row">Tipo Licencia:</th>
+         <td id="lice"></td>
+           </tr>
+          <tr>
+          <th scope="row">Timepo:</th>
+         <td id="time"></td>
+         </tr>
+           </tbody>
+         </table> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
 
   $(document).ready(function(){//funcion para comprobar el codigo de la licencia
       $("#check").click(function(){
         var lic = document.getElementById('licencia').value;
-        $.ajax({
-          type:"POST",
-          url:"check.php",
-          data:{licencia:lic},
-          dataType: "JSON",
-          beforeSend: function() {
-            $("#check").val("Comprobando...");
-          }
-        })
-        .done(function (res) {
-          if (res == 101) {
-            alert('Coloque su Licencia');
-          } else if(res == 102) {
-            alert('Error al ejecutar su consulta')
-          } else if(res == 103) {
-            alert('La licencia '+lic+' no concuerda con ninguna en el sistema. Por favor vuelva a ingresar su licencia correctamente.');
-          } else {
-            $('#check').val('Verificar');
-            $('#exampleModal').modal('hide');
-            $('#checkModal').modal('show');
-            $('#nomb').html(res.nom);
-            $('#rfcc').html(res.rfc);
-            $('#emai').html(res.mai);
-            $('#feci').html(res.fci);
-            $('#fecf').html(res.fcf);
-            $('#lice').html(res.lic);
-            $('#time').html(res.tim);
-            $('#codi').html(res.cod);
-
-
-             var f = new Date();
-             var ff = new Date(res.fcf);
-             //console.log(ff);
-            // console.log(f);
-             if(f <= ff){
-               //console.log("activo");
-               $('#Stats').addClass("bg-success");
-               $('#Stats').html("Activo");
-             }else{
-               //console.log("inactivo");
-               $('#Stats').addClass("bg-danger");
-               $('#Stats').html("Inactivo");
+        // console.log("Consulc");
+        var cl =  document.getElementById ('Consulc').value;
+         if(  cl == 0 ){
+           $.ajax({
+             type:"POST",
+             url:"check.php",
+             data:{licencia:lic},
+             dataType: "JSON",
+             beforeSend: function() {
+               $("#check").val("Comprobando...");
              }
+           })
+           .done(function (res) {
+             if (res == 101) {
+               alert('Coloque su Licencia');
+             } else if(res == 102) {
+               alert('Error al ejecutar su consulta')
+             } else if(res == 103) {
+               alert('La licencia '+lic+' no concuerda con ninguna en el sistema. Por favor vuelva a ingresar su licencia correctamente.');
+             } else {
+               $('#check').val('Verificar');
+               $('#exampleModal').modal('hide');
+               $('#checkModal').modal('show');
+               $('#nomb').html(res.nom);
+               $('#rfcc').html(res.rfc);
+               $('#emai').html(res.mai);
+               $('#feci').html(res.fci);
+               $('#fecf').html(res.fcf);
+               $('#lice').html(res.lic);
+               $('#time').html(res.tim);
+               $('#codi').html(res.cod);
 
-          }
-        })
-        .fail(function () {
-          console.log("error");
+
+                var f = new Date();
+                var ff = new Date(res.fcf);
+                //console.log(ff);
+               // console.log(f);
+                if(f <= ff){
+                  //console.log("activo");
+                  $('#Stats').addClass("bg-success");
+                  $('#Stats').html("Activo");
+                }else{
+                  //console.log("inactivo");
+                  $('#Stats').addClass("bg-danger");
+                  $('#Stats').html("Inactivo");
+                }
+
+             }
+           })
+           .fail(function () {
+             console.log("error");
+           });
+         }else{
+            $('#checkModal').modal("hide");
+            $('#checkModal1').modal("show");////////////
+            $.ajax({
+              type:"POST",
+              url:"check1.php",
+              data:{Consulc:cl},
+              dataType: "JSON",
+              beforeSend: function() {
+                $("#check1").val("Comprobando...");
+              }
+            })
+            .done(function (res) {
+                $.each (res,function(i,item){
+                  $('#DatosLic').html("<table class='table table-sm table-borderd table-dark table-striped'><tr><td><h4 id='listaL'></h4>licencias:</td></tr></table>");
+                });
+              });
+            }
         });
       });
-    });
-  </script>
+       </script>
 
     <!-- Services -->
     <section id="services">
