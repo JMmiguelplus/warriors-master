@@ -88,11 +88,14 @@ $cod = 'WL-'.$codigo.date("Y");
 
 $insertLicence = "INSERT INTO datos1(nombre,rfc, email, fecha_inicio,fecha_final,licencia,tiempo,codigo) VALUES ('$nombre','$rfc','$email','$fi','$ff','$licencia','$tiempo','$cod')";
 
-//header('Location: formulario.php');
+//Valicacion de nombre 'no repetir el mismo nombre'-->
+
+
+header('Location: formulario.php');
 
 echo "<br><br>".$insertLicence;
 //Insersiones a BD
-//$var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
+$var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
 
 pg_close($conexion);
 //}

@@ -19,12 +19,13 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="sweetalert2.min.js" type="text/javascript"></script>
+    <script src="js/script.js"></script>
+    <script src="js/jquery-3.2.1.js"></script>
     <link href="sweetalert2.min.css" type="text/css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-
   </head>
 
   <body id="page-top">
@@ -179,7 +180,7 @@
         </div>
         <div class="modal-body">
           <div id="DatosLic"></div>
-          <!-- <table class="table table-sm table-borderd table-dark table-striped">
+           <table class="table table-sm table-borderd table-dark table-striped"><!--DATOS LICENCIAS-->
           <tr>
             <td><h4 id="listaL"></h4>licencias:</td>
           </tr>
@@ -200,7 +201,7 @@
           <th scope="row">Email:</th>
          <td id="emai"></td>
              </tr>
-         <tr>
+         <!-- <tr>
           <th scope="row">Fecha Inicial:</th>
          <td id="feci"></td>
             </tr>
@@ -215,9 +216,10 @@
           <tr>
           <th scope="row">Timepo:</th>
          <td id="time"></td>
-         </tr>
+         </tr> -->
            </tbody>
-         </table> -->
+         </table>
+         <span id="ASDF"></span>
         </div>
       </div>
     </div>
@@ -274,7 +276,6 @@
                   $('#Stats').addClass("bg-danger");
                   $('#Stats').html("Inactivo");
                 }
-
              }
            })
            .fail(function () {
@@ -292,10 +293,14 @@
                 $("#check1").val("Comprobando...");
               }
             })
-            .done(function (res) {
-                $.each (res,function(i,item){
-                  $('#DatosLic').html("<table class='table table-sm table-borderd table-dark table-striped'><tr><td><h4 id='listaL'></h4>licencias:</td></tr></table>");
-                });
+              .done(function (res2) {
+              $('#ASDF').html(res2.nom);
+              $('#rfcc').html(res.rfc);
+              $('#emai').html(res.mai);
+
+              // $.each (res,function(i,item){
+                //   $('#DatosLic').html("<table class='table table-sm table-borderd table-dark table-striped'><tr><td><h4 id='listaL'></h4>licencias:</td></tr></table>");
+                // });
               });
             }
         });
@@ -340,7 +345,8 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" maxlength="30" required/>
+                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" minlength="4" maxlength="30" required/>
+                        <div id="checkusername" class=""></div>
                    </div>
                  </div>
                  <br>
@@ -365,6 +371,7 @@
                        </div>
                      </div>
                      <input type="text" class="form-control" id="email" name="email"placeholder="Email" data-validation-error-msg="incorrecto" maxlength="40" required/>
+                    <div id="checkemailresponse" class=""></div>
                    </div>
                  </div>
                  <br>
@@ -467,7 +474,8 @@
               <div class="clearfix"></div>
               <div class="col-md-6 offset-md-3">
                 <div id="success"></div>
-                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit"  onclick="alert('Registrado!!');" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
+                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit"  name="contratar" id="enviar" value="Contratar">Contratar</button></center>
+                  <!--<div id="alert"><img id="imagen" src="img/cargando.gif" alt=""><span id="mensajes"></span></div>-->
                 <div id="contenedor_errores"></div>
               </div>
             </form>
@@ -475,6 +483,107 @@
         </div>
       </div>
     </section>
+
+   <script>
+
+
+      $(document).ready(function () {
+   $("#nombre").keyup(checarUsuarios);
+  });
+
+
+     $(document).ready(function () {
+   $("#nombre").change(checarUsuarios);
+  });
+
+     $(document).ready(function () {
+   $("#email").keyup(checarEmails);
+  });
+
+
+     $(document).ready(function () {
+   $("#email").change(checarEmails);
+  });
+  function checarUsuarios() {
+
+  var nombre= document.getElementById('nombre').value;
+  var namelenght = nombre.length;
+  if (namelenght<4)
+  {
+  document.getElementById("checkusername").innerHTML="<i class='fa fa-close'></i> Nombre de usuario por lo menos de 4 caracteres <input id='usernamechecker' type='hidden' value='0' name='usernamechecker'> ";
+
+  }
+  else {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+  document.getElementById("checkusername").innerHTML = xhttp.responseText;
+  usernameresponsed = document.getElementById('nombre').value;
+
+
+
+  if (usernameresponsed=="1")
+  {
+
+   if (emailresponsed)
+   {
+      emailresponsed=document.getElementById('emailchecker').value;
+      if (emailresponsed=="1"){
+          document.getElementById("contratar").disabled = false;
+                    }
+   }
+  }
+
+
+  else if (usernameresponsed=="0")
+  {
+    document.getElementById("contratar").disabled = true;
+  }
+  }
+  };
+  xhttp.open("POST", "checarusername.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("nombre="+nombre+"");
+
+  }
+  }
+  function checarEmails() {
+
+  var email= document.getElementById('email').value;
+
+
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+  document.getElementById("checkemailresponse").innerHTML = xhttp.responseText;
+  emailresponsed = document.getElementById('emailchecker').value;
+  if (emailresponsed=="1")
+  {
+
+   if (usernameresponsed)
+   {
+      usernameresponsed=document.getElementById('usernamechecker').value;
+      if (usernameresponsed=="1"){
+          document.getElementById("contratar").disabled = false;
+                    }
+   }
+  }
+  else if (emailresponsed=="0")
+  {
+    document.getElementById("contratar").disabled = true;
+  }
+  }
+  };
+  xhttp.open("POST", "checkemail.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("email="+email+"");
+
+
+  }
+
+  </script>
+
     <script>
     function listaclientes() {
       $.ajax({

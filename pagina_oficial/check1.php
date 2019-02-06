@@ -1,6 +1,6 @@
 <?php
 if (empty($_GET['Consulc'])) {
-   //echo "hola";
+   // echo "hola";
 }else{
   $cadena ="host='localhost' port='5432' dbname='registros' user='postgres' password='12345'";
   // creación de la conexión a la base de datos con pg_connect()
@@ -21,13 +21,13 @@ while ($rgs = pg_fetch_row($res2)) {
   $qwe[] = $rgs;
 }
 echo json_encode($qwe);
-//   $rows = pg_num_rows($res);
-//
-// if (!$res) {
-//   echo "102";
+$rows = pg_num_rows($res2);
+
+if (!$res2) {
+  echo "102";
 // }
 //   if ($rows == 1) {
-//     while ($row = pg_fetch_row($res)) {
+//     while ($row = pg_fetch_row($res2)) {
 //       $reg['id'] = $row[0];
 //       $reg['nom'] = $row[1];
 //       $reg['rfc'] = $row[2];
@@ -38,9 +38,9 @@ echo json_encode($qwe);
 //       $reg['tim'] = $row[7];
 //     }
 //     echo json_encode($reg);
-//   }else {
-//     echo "103";
-//   }
+  }else {
+    echo "103";
+  }
 }
 
 ?>
