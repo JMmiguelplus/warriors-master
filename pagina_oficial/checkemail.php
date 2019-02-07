@@ -15,8 +15,8 @@ try {
     $db = new PDO("pgsql:host=localhost;dbname=registros", "postgres", "12345");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $db->prepare('SELECT count(*) FROM datos1 WHERE email = :email AND active=:active');
-    $stmt->execute(array('email' => $emailposted,'active' => $activito));
+    $stmt = $db->prepare('SELECT count(*) email FROM datos1 WHERE email = :email');
+    $stmt->execute(array('email' => $emailposted));
     $numdefilas = $stmt->fetchColumn();
 
     }
@@ -26,12 +26,12 @@ try {
 
   if ($numdefilas==0)
   {
-   echo "<div class='alert alert-success '><i class='fa fa-check'></i> Email disponible</div> <input id='emailchecker' type='hidden' value='1' name='emailchecker'>  ";
+   echo "<div class='alert alert-success '><i class='fa fa-check'></i> Email Actualmente disponible</div> <input id='emailchecker' type='hidden' value='1' name='emailchecker'>  ";
   }
    else {
-      echo "<div class='alert alert-danger '><i class='fa fa-close'></i> Email NO disponible <input id='emailchecker' type='hidden' value='0' name='emailchecker'></div>";
+      echo "<div class='alert alert-danger '><i class='fa fa-close'></i> Email Registrado Anteriormente  <input id='emailchecker' type='hidden' value='0' name='emailchecker'></div>";
     }
 } else {
-        echo 'ERROR: ';
+      
   }
 }

@@ -1,26 +1,44 @@
 <?php
- if(isset($_POST['enviar'])){
-   $email_to = lukejimenez1@gmail.com;
-   $email_subject =
+ 
+ include 'PHPMailer/class.phpmailer.php';
+ include 'PHPMailer/class.smtp.php';
+
+ $mail = new PHPMailer();
+
+
+try {
+ $mail->Username = "warlab2019@gmail.com";
+ $mail->Password = "WReporter19";
+
+ $mail->SMTPSecure = "ssl";
+ $mail->Host = "smtp.gmail.com";
+ $mail->Port = 465;
+ $mail->isSMTP();
+ $mail->SMTPAuth = true;
+
+ $mail->setFrom($mail->Username,'Licencias Warriors');
+
+ $mail->AddAddress('migue_luke@gmail.com');
+ $mail->Subject = "Registro de Licencia";
+
+ $mail->Body .= "<h1>Datos</h1>";
+ $mail->Body .= $nombre = $_POST['nombre'];
+ $mail->Body .= $rfc = $_POST['rfc'];
+ $mail->Body .= $email = $_POST['email'];
+ $mail->Body .= $fecha = $_POST['fecha'];
+ $mail->Body .= $licencia = $_POST['licencia'];
+
+
+
+
+ $mail->IsHTML(true);
+
+ if($mail->Send()){
+   echo "Enviado";
+ } else {
+   echo "Error";
  }
-// $nombre = $_POST['nombre'];
-// $mail = $_POST['email'];
-// $empresa = $_POST['mensaje'];
-//
-// $header = 'From: ' . $mail . " \r\n";
-// $header .= "X-Mailer: PHP/" . phpversion() . " \r\n";
-// $header .= "Mime-Version: 1.0 \r\n";
-// $header .= "Content-Type: text/plain";
-//
-// $mensaje = "Este mensaje fue enviado por " . $nombre . ",\r\n";
-// $mensaje .= "Su e-mail es: " . $mail . " \r\n";
-// $mensaje .= "Mensaje: " . $_POST['mensaje'] . " \r\n";
-// $mensaje .= "Enviado el " . date('d/m/Y', time());
-//
-// $para = 'ignaciobluuweb@gmail.com';
-// $asunto = 'Mensaje de mi sitio web';
-//
-// mail($para, $asunto, utf8_decode($mensaje), $header);
-//
-// header("Location:index.html");
+} catch(Exception $e){
+  echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+}
 ?>

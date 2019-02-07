@@ -88,16 +88,65 @@ $cod = 'WL-'.$codigo.date("Y");
 
 $insertLicence = "INSERT INTO datos1(nombre,rfc, email, fecha_inicio,fecha_final,licencia,tiempo,codigo) VALUES ('$nombre','$rfc','$email','$fi','$ff','$licencia','$tiempo','$cod')";
 
-//Valicacion de nombre 'no repetir el mismo nombre'-->
 
+//header('Location: formulario.php');
 
-header('Location: formulario.php');
-
-echo "<br><br>".$insertLicence;
+//echo "<br><br>".$insertLicence;
 //Insersiones a BD
 $var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
 
 pg_close($conexion);
+
+////ENVIO DEL FORMALIRO POR CORREO
+include 'PHPMailer/class.phpmailer.php';
+include 'PHPMailer/class.smtp.php';
+
+$mail = new PHPMailer();
+
+
+try {
+$mail->Username = "warlab2019@gmail.com";
+$mail->Password = "WReporter19";
+
+$mail->SMTPSecure = "ssl";
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 465;
+$mail->isSMTP();
+$mail->SMTPAuth = true;
+
+$mail->setFrom($mail->Username,'Licencias Warriors');
+
+$mail->AddAddress('lukejimenez1@gmail.com');
+$mail->Subject = "Registro de Licencia";
+
+$mail->Body .= "<h1>Datos</h1>";
+$mail->Body .= "Nombre:".$nombre."<br>";
+$mail->Body .= "RFC:".$rfc."<br>";
+$mail->Body .= "Email:".$email."<br>";
+$mail->Body .= "Fecha de Inicio:".$fi."<br>";
+$mail->Body .= "Fecha de Final:".$ff."<br>";
+$mail->Body .= "Tipo de licencia:".$licencia."<br>";
+$mail->Body .= "Codigo de la licencia:".$cod."<br>";
+
+$mail->IsHTML(true);
+
+if($mail->Send()){
+  ?>
+<script>
+  console.log('Enviado');
+</script>
+  <?
+} else {
+  ?>
+<script>
+  console.log('nel');
+</script>
+  <?
+}
+} catch(Exception $e){
+ echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+}
+
 //}
 //$to = $email;
 //$subject = 'Codigo de Validacion Warriors Licences';

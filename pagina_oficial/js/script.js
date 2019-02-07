@@ -27,6 +27,20 @@ $(document).ready(function(){
         } else{
             $('#rfc').css("border-bottom-color", "#d1d1d1")
         }
+        // validando fecha
+        if( $('#datepicker').val() == '' ){
+            errores += '<p>Seleccione una Fecha</p>';
+            $('#datepicker').css("border-bottom-color", "#F14B4B")
+        } else{
+            $('#datepicker').css("border-bottom-color", "#d1d1d1")
+        }
+        // validando licencias
+        if( $('#country').val() == '' ){
+            errores += '<p>Seleccione una Fecha</p>';
+            $('#country').css("border-bottom-color", "#F14B4B")
+        } else{
+            $('#country').css("border-bottom-color", "#d1d1d1")
+        }
 
         // ENVIANDO MENSAJE ============================
         if( errores == '' == false){

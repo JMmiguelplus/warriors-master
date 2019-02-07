@@ -132,7 +132,7 @@
     color: #E25151;
     margin-right: 8px;
 }
-  .mensaje_modal #btnClose{
+  #btnClose{
     display: inline-block;
     padding: 3px 10px;
     margin-top:10px;

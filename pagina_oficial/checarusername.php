@@ -28,10 +28,10 @@ if (isset($_POST))
 
 if ($numdefilas==0)
 {
- echo "<div class='alert alert-success '><i class='fa fa-check'></i> Nombre de usuario disponible</div><input id='usernamechecker' type='hidden' value='1' name='usernamechecker'>";
+ echo "<div class='alert alert-success '><i class='fa fa-check'></i> Nombre de Cliente disponible</div><input id='usernamechecker' type='hidden' value='1' name='usernamechecker'>";
 }
  else {
-    echo "<div class='alert alert-danger'><i class='fa fa-close'></i> Nombre de usuario NO disponible<input id='usernamechecker' type='hidden' value='0' name='usernamechecker'></div>";
+    echo "<div class='alert alert-danger'><i class='fa fa-close'></i> Nombre del Cliente NO disponible<input id='usernamechecker' type='hidden' value='0' name='usernamechecker'></div>";
 }
 }
 }

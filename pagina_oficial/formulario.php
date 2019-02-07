@@ -30,6 +30,7 @@
 
   <body id="page-top">
 
+
     <!-- Navigation -->
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -180,44 +181,26 @@
         </div>
         <div class="modal-body">
           <div id="DatosLic"></div>
-           <table class="table table-sm table-borderd table-dark table-striped"><!--DATOS LICENCIAS-->
-          <tr>
-            <td><h4 id="listaL"></h4>licencias:</td>
-          </tr>
-          <header>
-          <tr>
-          </tr>
-         </thead>
+           <table class="table table-hover table-ms table-dark" id="tablalic"><!--DATOS LICENCIAS-->
+      
          <tbody>
           <tr>
             <th scope="row">Nombre:</th>
-            <td id="nomb"></td>
+            <td id="name"></td>
               </tr>
           <tr>
           <th scope="row">RFC:</th>
-         <td id="rfcc"></td>
+         <td id="RFC"></td>
              </tr>
          <tr>
           <th scope="row">Email:</th>
-         <td id="emai"></td>
+         <td id="correo"></td>
              </tr>
-         <!-- <tr>
-          <th scope="row">Fecha Inicial:</th>
-         <td id="feci"></td>
-            </tr>
-          <tr>
-          <th scope="row">Fecha Final:</th>
-         <td id="fecf"></td>
-            </tr>
-          <tr>
-          <th scope="row">Tipo Licencia:</th>
-         <td id="lice"></td>
-           </tr>
-          <tr>
-          <th scope="row">Timepo:</th>
-         <td id="time"></td>
-         </tr> -->
-           </tbody>
+         <tr>
+          <th scope="row">Sus licencias en Warriors:</th>
+         <td id="lislicencia"></td>
+             </tr>
+            </tbody>
          </table>
          <span id="ASDF"></span>
         </div>
@@ -294,15 +277,49 @@
               }
             })
               .done(function (res2) {
-              $('#ASDF').html(res2.nom);
-              $('#rfcc').html(res.rfc);
-              $('#emai').html(res.mai);
+                console.log(res2);
+                $("#name").html(res2[0][1]);
+                $("#RFC").html(res2[0][2]);
+                $("#correo").html(res2[0][3]);
+                $.each(res2,function (i, item){
+                  console.log(item[6]);
+                  $("#lislicencia").append(item[6]+"<br>");
+                });
+            })
+            .fail(function( jqXHR, textStatus, errorThrown ) {
+                if (jqXHR.status === 0) {
 
-              // $.each (res,function(i,item){
-                //   $('#DatosLic').html("<table class='table table-sm table-borderd table-dark table-striped'><tr><td><h4 id='listaL'></h4>licencias:</td></tr></table>");
-                // });
-              });
-            }
+                  alert('Not connect: Verify Network.');
+
+                } else if (jqXHR.status == 404) {
+
+                  alert('Requested page not found [404]');
+
+                } else if (jqXHR.status == 500) {
+
+                  alert('Internal Server Error [500].');
+
+                } else if (textStatus === 'parsererror') {
+
+                  alert('Requested JSON parse failed.');
+                  console.log(textStatus+" "+errorThrown);
+
+                } else if (textStatus === 'timeout') {
+
+                  alert('Time out error.');
+
+                } else if (textStatus === 'abort') {
+
+                  alert('Ajax request aborted.');
+
+                } else {
+
+                  alert('Uncaught Error: ' + jqXHR.responseText);
+
+                }
+
+            });
+          }
         });
       });
        </script>
@@ -345,7 +362,7 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" minlength="4" maxlength="30" required/>
+                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" minlength="4" maxlength="30" required>
                         <div id="checkusername" class=""></div>
                    </div>
                  </div>
@@ -358,7 +375,8 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" maxlength="13" required/>
+                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" maxlength="13" required>
+                       <div id="checkrfc" class=""></div>
                    </div>
                  </div>
                  <br>
@@ -475,7 +493,7 @@
               <div class="col-md-6 offset-md-3">
                 <div id="success"></div>
                 <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit"  name="contratar" id="enviar" value="Contratar">Contratar</button></center>
-                  <!--<div id="alert"><img id="imagen" src="img/cargando.gif" alt=""><span id="mensajes"></span></div>-->
+
                 <div id="contenedor_errores"></div>
               </div>
             </form>
@@ -557,7 +575,7 @@
   xhttp.onreadystatechange = function() {
   if (xhttp.readyState == 4 && xhttp.status == 200) {
   document.getElementById("checkemailresponse").innerHTML = xhttp.responseText;
-  emailresponsed = document.getElementById('emailchecker').value;
+  emailresponsed = document.getElementById('email').value;
   if (emailresponsed=="1")
   {
 
