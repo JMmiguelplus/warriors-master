@@ -45,7 +45,7 @@
             <li class="nav-item">
 
               <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#exampleModal">
-                estado
+                estatus
               </a>
             </li>
             <li class="nav-item">
@@ -75,7 +75,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Ingrese su condigo de licencia o selecione un cliente:</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Ingrese su condigo de licencia o Conozca sus licencias contratadas en Warriors:</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -182,7 +182,7 @@
         <div class="modal-body">
           <div id="DatosLic"></div>
            <table class="table table-hover table-ms table-dark" id="tablalic"><!--DATOS LICENCIAS-->
-      
+
          <tbody>
           <tr>
             <th scope="row">Nombre:</th>
@@ -265,8 +265,8 @@
              console.log("error");
            });
          }else{
-            $('#checkModal').modal("hide");
-            $('#checkModal1').modal("show");////////////
+            $('#exampleModal').modal("hide");
+            $('#checkModal1').modal("show");////////////Consulta de todoa las licencias del cliente
             $.ajax({
               type:"POST",
               url:"check1.php",
@@ -337,7 +337,7 @@
           <div class="col-md-8 offset-md-2">
             <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
             <br>
-            <form id="contactForm" name="sentMessage" novalidate="novalidate" method="POST" action="insertar.php">
+            <form id="contactForm" name="sentMessage" method="POST" action="#">
               <div class="col-md-10">
                 <label class="sr-only" for="inlineFormInputGroup"></label>
                 <div class="input-group col-md-8 offset-md-3">
@@ -345,11 +345,16 @@
                     <div class="input-group-text">
                       <i class="fas fa-user"></i>
                     </div>
-                  </div>
-                  <select class="custom-select" name="listac" id="listac">
-                     <option value="0">Nuevo Cliente</option>
+                     </div>
+                       <select class="custom-select" name="listac" id="listac">
+                     <option value="0">Clientes Warriors</option>
                   </select>
                 </div>
+              <div class="col-md-12">
+                  <div class='alert alert-warning  col-mod-20' id="msj">
+                    <i class='fa fa-close'></i>
+                    Ya  no es necesario llenar los campos "Nombre o Empresa","RFC","Email".
+                  </div>
               </div>
               <br>
               <div class="form-row" id="div3">
@@ -362,7 +367,7 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="nombre" minlength="4" maxlength="30" required>
+                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="30" required>
                         <div id="checkusername" class=""></div>
                    </div>
                  </div>
@@ -375,7 +380,7 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="RFC" maxlength="13" required>
+                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="Escribe un RFC" maxlength="13" required>
                        <div id="checkrfc" class=""></div>
                    </div>
                  </div>
@@ -388,7 +393,7 @@
                          <i class="fas fa-at"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="email" name="email"placeholder="Email" data-validation-error-msg="incorrecto" maxlength="40" required/>
+                     <input type="text" class="form-control" id="email" name="email"placeholder="Escribe un Email"  maxlength="40" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required/>
                     <div id="checkemailresponse" class=""></div>
                    </div>
                  </div>
@@ -403,7 +408,7 @@
                          <i class="fas fa-calendar"></i>
                        </div>
                      </div>
-                     <input id="datepicker" class="form-control" name="fecha" type="date" placeholder="Fecha" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"required/>
+                     <input id="datepicker" class="form-control" name="fecha" type="date" placeholder="Seleciona la Fecha de Inicio" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"required/>
                    </div>
                  </div>
                  <br>
@@ -415,7 +420,7 @@
                          <i class="fas fa-file-signature"></i>
                        </div>
                      </div>
-                     <select class="custom-select" onchange="getNewVal(this);" name="licencia" id="country" >
+                     <select class="custom-select" onchange="getNewVal(this);" name="licencia" id="country" required/>
 
                        <option selected>Tipo de licencia </option>
                        <option value="Demo">Demo</option>
@@ -434,7 +439,7 @@
                          <i class="far fa-credit-card"></i>
                        </div>
                      </div>
-                     <select class="custom-select" name="demo">
+                     <select class="custom-select" name="demo" required/>
                        <option disabled selected>Tiempo del DEMO</option>
                        <option value="30">30 Dias</option>
                        <option value="40">40 Dias</option>
@@ -451,7 +456,7 @@
                            <i class="fas fa-clock"></i>
                          </div>
                        </div>
-                       <select class="custom-select"name="tiempo">
+                       <select class="custom-select"name="tiempo0" required/>
                          <option disabled selected>Tiempo</option>
                          <option value="1">1 año</option>
                          <option value="2">2 años</option>
@@ -476,9 +481,9 @@
     	               checkInput("#rfc", rfcPattern)&&
     	               checkInput("#email", emailPattern))
     	          {
-    		        //console.log(idForm);
+
     	          } else {
-    		        //console.log("error");
+
     	          }
 	            });
               }
@@ -512,6 +517,14 @@
 
      $(document).ready(function () {
    $("#nombre").change(checarUsuarios);
+  });
+      $(document).ready(function () {
+   $("#rfc").keyup(checarrfc);
+  });
+
+
+     $(document).ready(function () {
+   $("#rfc").change(checarrfc);
   });
 
      $(document).ready(function () {
@@ -599,7 +612,40 @@
 
 
   }
+  function checarrfc() {
 
+  var rfc= document.getElementById('rfc').value;
+
+
+
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+  if (xhttp.readyState == 4 && xhttp.status == 200) {
+  document.getElementById("checkrfc").innerHTML = xhttp.responseText;
+  rfcresponsed = document.getElementById('rfc').value;
+  if (rfcresponsed=="1")
+  {
+
+   if (usernameresponsed)
+   {
+      usernameresponsed=document.getElementById('usernamechecker').value;
+      if (usernameresponsed=="1"){
+          document.getElementById("contratar").disabled = false;
+                    }
+   }
+  }
+  else if (rfcresponsed=="0")
+  {
+    document.getElementById("contratar").disabled = true;
+  }
+  }
+  };
+  xhttp.open("POST", "checarrfc.php", true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send("rfc="+rfc+"");
+
+
+  }
   </script>
 
     <script>
@@ -629,6 +675,7 @@
     $(document).ready(function(){//seleccion de select a ocultar
       $('#div1').hide();
       $('#div2').hide();
+      $('#msj').hide();
       listaclientes();
       $('#listac').change(function() {
         var asd = document.getElementById('listac').value;
@@ -636,10 +683,12 @@
           $('#nombre').attr('readonly',true);
           $('#rfc').attr('readonly',true);
           $('#email').attr('readonly',true);
+          $('#msj').show();
         }else {
           $('#nombre').attr('readonly',false);
           $('#rfc').attr('readonly',false);
           $('#email').attr('readonly',false);
+          $('#msj').hide();
         }
         //console.log(asd);
       });

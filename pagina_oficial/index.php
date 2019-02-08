@@ -75,7 +75,7 @@
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Licencia Standard</h4>
-            <p class="text-muted">Caracteristicas:
+            <p class="text-muted">Caracterìsticas:
 								 Soporte Técnico via remota (mail)8x3,
 								Actualizaciones del sistema,
 								Monitoreo en tiempo real,
@@ -98,7 +98,7 @@
               <i class="fas fa-circle fa-stack-2x text-primary"></i>
               <i class="fas fa-star fa-stack-1x fa-inverse"></i>
             </span>
-            <h4 class="service-heading">Licecnia Premium</h4>
+            <h4 class="service-heading">Licencia Premium</h4>
             <p class="text-muted">Características;
 						         Soporte Técnico (9:00 a 19:00),
 								   Actualización,

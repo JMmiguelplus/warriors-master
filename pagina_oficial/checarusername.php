@@ -1,10 +1,5 @@
 <?php
 
-// $cadena ="host='localhost' port='5432' dbname='registros' user='postgres' password='12345'";
-// creación de la conexión a la base de datos con pg_connect()
-// $conexion = pg_connect($cadena) or die ("No se ha podido conectar al servidor de Base de datos");
-
-
 //CHECH IF USERNAME EXISTS
 if (isset($_POST))
 {
