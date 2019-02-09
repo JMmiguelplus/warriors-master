@@ -20,8 +20,10 @@ function generarCodigo($longitud)
 }
 //if(empty($nombre) or empty($rfc) or  empty($email)){
   //echo "Llena campos";
-//} else {//Genera Codigo de 8 digitos de forma aleatoria
+$pro = $_POST["producto"];
+$des = $_POST["descripcion"];
 
+//} else {//Genera Codigo de 8 digitos de forma aleatoria
 $list = $_POST['listac'];
 echo $list."<br>";
 
@@ -86,7 +88,7 @@ if($demo == 30 or $demo == 40 or $demo == 90){
 //concatenacion de letras para generar el codigo
 $cod = 'WL-'.$codigo.date("Y");
 
-$insertLicence = "INSERT INTO datos1(nombre,rfc, email, fecha_inicio,fecha_final,licencia,tiempo,codigo) VALUES ('$nombre','$rfc','$email','$fi','$ff','$licencia','$tiempo','$cod')";
+$insertLicence = "INSERT INTO datos1(nombre,rfc, email, producto, fecha_inicio,fecha_final,licencia,tiempo,descripcion,codigo) VALUES ('$nombre','$rfc','$email','$pro','$fi','$ff','$licencia','$tiempo','$des','$cod')";
 
 
 //header('Location: formulario.php');
@@ -147,51 +149,19 @@ if($mail->Send()){
  echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
 }
 
-//}
-//$to = $email;
-//$subject = 'Codigo de Validacion Warriors Licences';
-//$message = '
-//    <html>
-//    <head>
-//        <title>Codigo de Validacion</title>
-//    </head>
-//        <body>
-//        <h1>Hola, para poder ingresar y visualizar los detalles de su licencia podra verificarlo con el codigo que se le proporciona acontinuacion:</h1>
-//        <br>
-//        <center><p><b><?php $codigo</b></p></center>
-//        </body>
-//    </html>';
+$id = round(microtime(true) * 1000);
 
-//$to = $email;
-//$subject = 'Codigo de Validacion Warriors Licences';
-//$message = '
-//    <html>
-//    <head>
-//        <title>Codigo de Validacion</title>
-//    </head>
-//        <body>
-//        <h1>Hola, para poder ingresar y visualizar los detalles de su licencia podra verificarlo con el codigo que se le proporciona acontinuacion:</h1>
-//        <br>
-//        <center><p><b><?php $codigo</b></p></center>
-//        </body>
-//    </html>';
+$contenido = md5($nombre . "|" . $licencia);
 
+$archivo = fopen("licencia_warriors_" . $id . ".txt", "a") or die ("Error de captura");
 
-//mail($to, $subject, $message);
+fwrite($archivo,PHP_EOL ."$contenido");
+fwrite($archivo, $contenido . PHP_EOL);
 
-//$id = round(microtime(true) * 1000);
+fclose($archivo);
 
-//$contenido = md5($nombre . "|" . $licencia);
+header('Location: index.php');
 
-//$archivo = fopen("licencia_warriors_" . $id . ".txt", "a") or die ("Error de captura");
-
-//fwrite($archivo,PHP_EOL ."$contenido");
-//fwrite($archivo, $contenido . PHP_EOL);
-
-//fclose($archivo);
-
-//header('Location: index.php');
-
-
-//header("location: formulario.php");
+//
+// header("location: formulario.php");
 ?>

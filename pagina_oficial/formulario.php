@@ -19,7 +19,7 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
     <script src="sweetalert2.min.js" type="text/javascript"></script>
-    <script src="js/script.js"></script>
+
     <script src="js/jquery-3.2.1.js"></script>
     <link href="sweetalert2.min.css" type="text/css" rel="stylesheet">
 
@@ -239,10 +239,12 @@
                $('#nomb').html(res.nom);
                $('#rfcc').html(res.rfc);
                $('#emai').html(res.mai);
+               $('#pro').html(res.proc);
                $('#feci').html(res.fci);
                $('#fecf').html(res.fcf);
                $('#lice').html(res.lic);
                $('#time').html(res.tim);
+               $('#com').html(res.men);
                $('#codi').html(res.cod);
 
 
@@ -337,7 +339,7 @@
           <div class="col-md-8 offset-md-2">
             <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
             <br>
-            <form id="contactForm" name="sentMessage" method="POST" action="#">
+            <form id="contactForm" name="sentMessage" method="POST" action="insertar.php">
               <div class="col-md-10">
                 <label class="sr-only" for="inlineFormInputGroup"></label>
                 <div class="input-group col-md-8 offset-md-3">
@@ -395,6 +397,18 @@
                      </div>
                      <input type="text" class="form-control" id="email" name="email"placeholder="Escribe un Email"  maxlength="40" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required/>
                     <div id="checkemailresponse" class=""></div>
+                   </div>
+                 </div>
+                 <br>
+                  <div class="col-md-12" id="div7">
+                   <label class="sr-only" for="inlineFormInputGroup">producto</label>
+                   <div class="input-group col-md-12">
+                     <div class="input-group-prepend">
+                       <div class="input-group-text">
+                         <i class="fab fa-dropbox"></i>
+                       </div>
+                     </div>
+                     <input type="text" class="form-control" id="pro" name="producto"placeholder="Producto"  maxlength="30"  required/>
                    </div>
                  </div>
                  <br>
@@ -456,7 +470,7 @@
                            <i class="fas fa-clock"></i>
                          </div>
                        </div>
-                       <select class="custom-select"name="tiempo0" required/>
+                       <select class="custom-select"name="tiempo" required/>
                          <option disabled selected>Tiempo</option>
                          <option value="1">1 año</option>
                          <option value="2">2 años</option>
@@ -464,7 +478,13 @@
                        </select>
                      </div>
                    </div>
-                   <br>
+                     <br>
+                       <div class="col-md-12">
+                         <div class="form-group col-md-12 offset-md-3">
+                           <textarea class="form-control" id="message" placeholder="Descripcion " name="descripcion" required="required" data-validation-required-message="Please enter a message."></textarea>
+                        <p class="help-block text-danger"></p>
+                </div>
+              </div>
                </div>
              </div>
              <script>
@@ -497,7 +517,7 @@
               <div class="clearfix"></div>
               <div class="col-md-6 offset-md-3">
                 <div id="success"></div>
-                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit"  name="contratar" id="enviar" value="Contratar">Contratar</button></center>
+                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
 
                 <div id="contenedor_errores"></div>
               </div>
