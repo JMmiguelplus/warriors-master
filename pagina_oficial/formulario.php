@@ -1,6 +1,8 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="img/ico" sizes="16x16" href="img/favicon.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -95,7 +97,6 @@
                    <option value="0">Clientes registrados</option>
                 </select>
                 <script src="consultabd.js"></script>
-
               </div>
             </div>
             <center>o</center>
@@ -122,7 +123,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <table class="table table-sm table-bordered table-dark table-striped">
+          <table class="table table-sm table-hover table-bordered table-dark table-striped">
           <tr>
             <td><h4 id="Estado">Estado</h4></td>
             <td id="Stats"></td>
@@ -145,6 +146,10 @@
          <td id="emai"></td>
              </tr>
          <tr>
+          <th scope="row">Equipo:</th>
+         <td id="pro"></td>
+             </tr>
+         <tr>
           <th scope="row">Fecha Inicial:</th>
          <td id="feci"></td>
             </tr>
@@ -159,6 +164,10 @@
           <tr>
           <th scope="row">Timepo:</th>
          <td id="time"></td>
+           </tr>
+          <tr>
+          <th scope="row">Nota:</th>
+         <td id="com"></td>
            </tr>
           <tr>
           <th scope="row">Codigo:</th>
@@ -181,7 +190,7 @@
         </div>
         <div class="modal-body">
           <div id="DatosLic"></div>
-           <table class="table table-hover table-ms table-dark" id="tablalic"><!--DATOS LICENCIAS-->
+           <table class="table table-hover table-responsive table-ms table-dark" id="tablalic"  ><!--DATOS LICENCIAS-->
 
          <tbody>
           <tr>
@@ -199,6 +208,8 @@
          <tr>
           <th scope="row">Sus licencias en Warriors:</th>
          <td id="lislicencia"></td>
+          <th scope="row">Equipo:</th>
+         <td id="lispro"></td>
              </tr>
             </tbody>
          </table>
@@ -285,7 +296,11 @@
                 $("#correo").html(res2[0][3]);
                 $.each(res2,function (i, item){
                   console.log(item[6]);
-                  $("#lislicencia").append(item[6]+"<br>");
+                  $("#lislicencia").append(item[7]+"<br>");
+                });
+                $.each(res2,function (i, item){
+                  console.log(item[6]);
+                  $("#lispro").append(item[4]+"<br>");
                 });
             })
             .fail(function( jqXHR, textStatus, errorThrown ) {

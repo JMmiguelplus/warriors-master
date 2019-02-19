@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="icon" type="img/ico" sizes="16x16" href="img/favicon.ico">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no,initial-scale=1.0,minimum-scale=1.0, shrink-to-fit=no">
     <meta name="description" content="">
@@ -109,63 +110,67 @@
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contactanos</h2>
-            <h3 class="section-subheading text-muted">Si quieres conocer un poco mas de nuestras licencias, puedes comunicarte con nosotros por medio de las redes sociales.</p>
-						<div class="btn-section">.</h3>
+        <!-- Contact Section -->
+        <section class="page-section" id="contact">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8 text-center">
+                <h2 class="text-muted1">Contactanos</h2>
+                <hr class="divider my-4">
+                <p class="text-muted1 mb-5">Corporativo, consultor, desarrollador e integrador de soluciones tecnológicas para aumentar la productividad empresarial.</p>
+              </div>
+            </div>
+            <div class="text-muted1">
+              <div class="col-lg-4 ml-auto text-center">
+                <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
+                <div>+52 (55) 55792273</div>
+              </div>
+              <div class="col-lg-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                <!-- Make sure to change the email address in anchor text AND the link below! -->
+                <a class="d-block" href="">soporte@warriorsdefender.com</a>
+              </div>
+            </div>
           </div>
+        </section>
+
+        <!-- Footer -->
+        <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <span class="copyright">Powered By WarriorsLabs. All Rights Reserved.</span>
         </div>
-
-    <!-- Footer -->
-    <footer>
-      <div class="container-footer-all">
-      <div class="container-body">
-        <div class="colum1">
-
-          <p>WARRIORSLABS<p>
-          <p>Corporativo, consultor, desarrollador e integrador de soluciones tecnológicas para aumentar la productividad empresarial.</p>
-
-            <!--<span class="copyright">Powered By WarriorsLabs ALL Rights Reserved.</span>-->
-          </div>
-          <div class="col-md-4">
-            <h1>Redes sociales</h1>
-            <div class="row">
-              <ul class="list-inline social-buttons">
-
-                <a href="http://www.twitter.com/@WarriorsFIM/">
-                  <i class="fab fa-twitter"></i>
-                  <label>Siguenos en twitter</label>
-                </div>
-                <div class="row">
-                 <a href="http://www.facebook.com/WarriorsLabs/">
-                  <i class="fab fa-facebook-f"></i>
-                  <label>Siguenos en facebook</label>
-                </div>
-              <div class="colum3">
-                <h1></h1>
-                <div class="row2">
-                  <i class="fas fa-home"></i>
-                  <label>CP. 03520 Benito Juarez,CDMX,Mexico,Pedro Santacilla 258.</label>
-                </div>
-                <div class="row2">
-                  <i class="fas fa-phone-volume"></i>
-                  <label>+52 55 5579 2273</label>
-                </div>
-              </i>
-                </a>
-              </li>
-            </ul>
-          </div>
-              </li>
-            </ul>
-          </div>
+        <div class="col-md-4">
+          <ul class="list-inline social-buttons">
+            <li class="list-inline-item">
+              <a href="http://www.twitter.com/@WarriorsFIM/">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="http://www.facebook.com/WarriorsLabs/">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-md-4">
+          <ul class="list-inline quicklinks">
+            <li class="list-inline-item">
+              <a href="#"></a>
+            </li>
+            <li class="list-inline-item">
+              <a href="#"></a>
+            </li>
+          </ul>
         </div>
       </div>
-    </footer>
+    </div>
+  </footer>
+
+
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

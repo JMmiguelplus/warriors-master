@@ -18,12 +18,11 @@ function generarCodigo($longitud)
     };
     return $key;
 }
-//if(empty($nombre) or empty($rfc) or  empty($email)){
-  //echo "Llena campos";
+
 $pro = $_POST["producto"];
 $des = $_POST["descripcion"];
 
-//} else {//Genera Codigo de 8 digitos de forma aleatoria
+//Genera Codigo de 8 digitos de forma aleatoria
 $list = $_POST['listac'];
 echo $list."<br>";
 
