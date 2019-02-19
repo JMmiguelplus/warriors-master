@@ -1,0 +1,10 @@
+#alert{
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+}
+#alert img{
+  display: none;
+}
