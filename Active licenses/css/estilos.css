@@ -8,3 +8,12 @@
 #alert img{
   display: none;
 }
+.ima-body{
+  display: flex;
+  justify-content: center;
+
+}
+.ima-body img{
+  height: 30px;
+  width:  30px;
+}

@@ -43,7 +43,7 @@
         <h5 class="modal-title">Activa tu licencia</h5>
       </div>
       <div class="modal-body">
-      <form>
+      <form action="#">
         <div class="form-group">
           <label for="recipient-name" class="col-form-label">Coloca tu licencia</label>
           <input type="text" class="form-control" id="activar">
@@ -51,8 +51,12 @@
       </div>
       <div class="modal-footer">
         <div id="alert"><img id="imagen" src="img/cargando.gif" ><span id="mensaje"></span></div>
-        <button type="button" class="btn btn-outline-success" id="check" value="Verificar" >Activar</button>
+        <input type="submit" class="btn btn-outline-success" id="check" value="Verificar" ></input>
+        <script>
+        val
+        </script>
       </div>
+    </form>
     </div>
   </div>
 </div>
@@ -70,6 +74,7 @@
                $("#check").val("Comprobando...");
                $("#imagen").show();
                $("#mensaje").html('Activando..');
+               $("#exampleModal").modal('show');
              }
            })
            .done(function(respuesta){
@@ -102,10 +107,29 @@
          });
        })
      })
-
-
-
       </script>
+
+      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" ></div>
+      <div class="ima-body"><img src="img/cor.png">Licencia Activada </div><br>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
 
   <header class="masthead">
     <div class="container h-100">

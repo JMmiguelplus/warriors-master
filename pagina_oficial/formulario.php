@@ -37,7 +37,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <div id="logo"><img src="img/logo2.png" alt="" width="195" height="100"></div>
+        <div id="logo"><a href="index.php"><img  src="img/logo2.png" alt="" width="195" height="100"></div></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -181,11 +181,10 @@
   </div>
   <div class="modal fade" id="checkModal1" tabindex="-1" role="dialog" aria-labelledby="checkModalLabel1" aria-hidden="true">
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" id="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="checkModalLabel1">Sus licencias son:</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <!--<span aria-hidden="true">&times;</span>-->
           </button>
         </div>
         <div class="modal-body">
@@ -210,14 +209,18 @@
          <td id="lislicencia"></td>
           <th scope="row">Equipo:</th>
          <td id="lispro"></td>
-             </tr>
-            </tbody>
-         </table>
+                    </tr>
+                 </tbody>
+               </table>
+             <div class="modal-footer">
+             <button type="button" class="btn btn-primary" id="Ocultar">OK</button>
+           </div>
          <span id="ASDF"></span>
         </div>
       </div>
     </div>
   </div>
+
 
   <script>
 
@@ -294,6 +297,10 @@
                 $("#name").html(res2[0][1]);
                 $("#RFC").html(res2[0][2]);
                 $("#correo").html(res2[0][3]);
+                var ted = document.getElementById('lislicencia');
+                var ted1 = document.getElementById('lispro');
+                ted.innerHTML = '';
+                ted1.innerHTML = '';
                 $.each(res2,function (i, item){
                   console.log(item[6]);
                   $("#lislicencia").append(item[7]+"<br>");
@@ -338,6 +345,16 @@
             });
           }
         });
+
+        $('#Ocultar').click(function () {
+          $('#checkModal1').modal('hide');
+          document.getElementById ('Consulc').value = 0;
+          document.getElementById("licencia").disabled = false;
+        });
+        var result = document.getElementById('lislicencia');
+        // function vaciar(){
+          result.innerHTML = '';
+        // }
       });
        </script>
 
@@ -384,10 +401,27 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="30" required>
+                     <input type="text" class="form-control" id="nombre" name="nombre" onkeypress="return Sletras(event)" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="30" required>
                         <div id="checkusername" class=""></div>
                    </div>
                  </div>
+                 <script type="text/javascript">
+                       function Sletras(e){
+                     key = e.keyCode || e.which;
+                        teclado= String.fromCharCode(key).toLowerCase();
+                        letras=" abcdefghijklmnopqrstuvwxyz";
+                        especiales="8-37-38-46-164";
+                        teclado_especial=false;
+                     for(var i in especiales){
+                          if(key==especiales[i]){
+                     teclado_especial=true;break;
+                     }
+                 }
+                   if(letras.indexOf(teclado)==-1 && !teclado_especial){
+                          return false;
+                     }
+                }
+                 </script>
                  <br>
                  <div class="col-md-12" id="div4">
                    <label class="sr-only" for="inlineFormInputGroup">rfc</label>
@@ -397,10 +431,27 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" id="rfc" name="rfc" placeholder="Escribe un RFC" maxlength="13" required>
+                    <input type="text" class="form-control" id="rfc" name="rfc" onkeypress="return Srfc(event)" placeholder="Escribe un RFC" maxlength="13" required>
                        <div id="checkrfc" class=""></div>
                    </div>
                  </div>
+                 <script type="text/javascript">
+                      function Srfc(e){
+                     key = e.keyCode || e.which;
+                    teclado= String.fromCharCode(key).toLowerCase();
+                    letras=" abcdefghijklmnopqrstuvwxyz1234567890";
+                    especiales="8-37-38-46-164";
+                    teclado_especial=false;
+                    for(var i in especiales){
+                    if(key==especiales[i]){
+                    teclado_especial=true;break;
+                            }
+                    }
+                    if(letras.indexOf(teclado)==-1 && !teclado_especial){
+                    return false;
+                          }
+                    }
+                 </script>
                  <br>
                   <div class="col-md-12" id="div5">
                    <label class="sr-only" for="inlineFormInputGroup">email</label>
@@ -431,7 +482,7 @@
                <div class="form-group col-md-6">
                  <div class="col-md-12">
                    <label class="sr-only" for="inlineFormInputGroup"></label>
-                   <div class="input-group col-md-12 offset-md-3">
+                   <div class="input-group col-md-12 offset-md-4">
                      <div class="input-group-prepend">
                        <div class="input-group-text">
                          <i class="fas fa-calendar"></i>
@@ -443,7 +494,7 @@
                  <br>
                  <div class="col-md-12">
                    <label class="sr-only" for="inlineFormInputGroup"></label>
-                   <div class="input-group col-md-12 offset-md-3">
+                   <div class="input-group col-md-12 offset-md-4">
                      <div class="input-group-prepend">
                        <div class="input-group-text">
                          <i class="fas fa-file-signature"></i>
@@ -462,7 +513,7 @@
                  <br>
                  <div class="col-md-12" id="div1">
                    <label class="sr-only" for="inlineFormInputGroup"></label>
-                   <div class="input-group col-md-12 offset-md-3">
+                   <div class="input-group col-md-12 offset-md-4">
                      <div class="input-group-prepend">
                        <div class="input-group-text">
                          <i class="far fa-credit-card"></i>
@@ -479,7 +530,7 @@
                    <br>
                    <div class="col-md-12" id="div2">
                      <label class="sr-only" for="inlineFormInputGroup"></label>
-                     <div class="input-group col-md-12 offset-md-3">
+                     <div class="input-group col-md-12 offset-md-4">
                        <div class="input-group-prepend">
                          <div class="input-group-text">
                            <i class="fas fa-clock"></i>
@@ -494,9 +545,9 @@
                      </div>
                    </div>
                      <br>
-                       <div class="col-md-12">
-                         <div class="form-group col-md-12 offset-md-3">
-                           <textarea class="form-control" id="message" placeholder="Descripcion " name="descripcion" required="required" data-validation-required-message="Please enter a message."></textarea>
+                       <div class="col-md-13">
+                         <div class="form-group col-md-12 offset-md-4">
+                           <textarea class="form-control" id="message" placeholder="Nota:" name="descripcion" required="required" data-validation-required-message="Please enter a message."></textarea>
                         <p class="help-block text-danger"></p>
                 </div>
               </div>
@@ -526,11 +577,12 @@
 
             $(function() {
             checkForm("#contactForm");
+
             });
 
             </script>
               <div class="clearfix"></div>
-              <div class="col-md-6 offset-md-3">
+              <div class="col-md-5 offset-md-5">
                 <div id="success"></div>
                 <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
 

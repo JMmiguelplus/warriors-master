@@ -114,24 +114,23 @@
         <section class="page-section" id="contact">
           <div class="container">
             <div class="row justify-content-center">
-              <div class="col-lg-8 text-center">
-                <h2 class="text-muted1">Contactanos</h2>
-                <hr class="divider my-4">
-                <p class="text-muted1 mb-5">Corporativo, consultor, desarrollador e integrador de soluciones tecnológicas para aumentar la productividad empresarial.</p>
+              <div class="col-lg-9 text-center">
+                <h2 class="text-muted2">Contactanos</h2>
+                <hr class="divider my-3">
+                <p class="text-muted2 mb-6">Corporativo, consultor, desarrollador e integrador de soluciones tecnológicas para aumentar la productividad empresarial.</p>
               </div>
             </div>
-            <div class="text-muted1">
-              <div class="col-lg-4 ml-auto text-center">
+            <div class="text-muted2">
+              <div class="col-lg-5 ml-auto text-center">
                 <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
                 <div>+52 (55) 55792273</div>
-              </div>
-              <div class="col-lg-4 mr-auto text-center">
-                <i class="fas fa-envelope fa-3x mb-3 text-muted"></i>
-                <!-- Make sure to change the email address in anchor text AND the link below! -->
-                <a class="d-block" href="">soporte@warriorsdefender.com</a>
+                <br>
+                <i class="fas fa-at fa-3x mb-3 text-muted"></i>
+                <div>soporte@warri0rsdefender.com</div>
               </div>
             </div>
           </div>
+        </div>
         </section>
 
         <!-- Footer -->
