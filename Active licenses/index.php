@@ -52,9 +52,6 @@
       <div class="modal-footer">
         <div id="alert"><img id="imagen" src="img/cargando.gif" ><span id="mensaje"></span></div>
         <input type="submit" class="btn btn-outline-success" id="check" value="Verificar" ></input>
-        <script>
-        val
-        </script>
       </div>
     </form>
     </div>
@@ -74,7 +71,6 @@
                $("#check").val("Comprobando...");
                $("#imagen").show();
                $("#mensaje").html('Activando..');
-               $("#exampleModal").modal('show');
              }
            })
            .done(function(respuesta){
@@ -103,15 +99,15 @@
                $('#fecf').html(res.fcf);
                $('#lice').html(res.lic);
                $('#time').html(res.tim);
+               setTimeout(function(){
+                 $("#exampleModal").modal('show');
+               },100);
            }
          });
        })
      })
-      </script>
 
-      <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Launch demo modal
-</button> -->
+      </script>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -131,12 +127,27 @@
   </div>
 </div>
 
+
   <header class="masthead">
     <div class="container h-100">
       <div class="row h-100">
         <div class="col-lg-7 my-auto">
           <div class="header-content mx-auto">
           </div>
+          <table class="table table-sm table-striped table-dark">
+  <thead>
+    <tr>
+      <th scope="col" class="bg-success"><center>Activo</center></th>
+      <th scope="col" class="bg-danger"><center>Inactivo</center></th>
+      <th scope="col" class="bg-warning"><center>No disponible</center></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+<p>
           <table class="table table-sm table-responsive table-bordered table-dark" id="table-one" name="table-one">
           <thead>
             <tr>
@@ -151,20 +162,22 @@
           </thead>
           <tbody>
             <tr>
-              <td rowspan="3" id="nomb"></td>
-              <td rowspan="3"id="lice"></td>
-              <td rowspan="3"id="pro"></td>
-              <td rowspan="3"id="time"></td>
-              <td rowspan="3"id="feci"></td>
-              <td rowspan="3"id="fecf"></td>
-              <td class="bg-success">Soporte</td>
+              <td rowspan="4" id="nomb"></td>
+              <td rowspan="4"id="lice"></td>
+              <td rowspan="4"id="pro"></td>
+              <td rowspan="4"id="time"></td>
+              <td rowspan="4"id="feci"></td>
+              <td rowspan="4"id="fecf"></td>
+              <td class="bg-success">Soporte Tecnico</td>
             </tr>
-            <td class="bg-success">Mesa de ayuda</td>
+            <td class="bg-success">Monitoreo</td>
           </tr>
           <tr>
           <td class="bg-danger">Actuliazaciones</td>
-
-            </tr>
+        </tr>
+          <tr>
+          <td class="bg-warning">Capacitacion</td>
+        </tr>
             </table>
           </tbody>
        </div>
@@ -183,17 +196,7 @@
 
   <footer>
     <div class="container">
-      <p>&copy; Your Website 2019. All Rights Reserved.</p>
-      <ul class="list-inline">
-        <li class="list-inline-item">
-          <a href="#">Privacy</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">Terms</a>
-        </li>
-        <li class="list-inline-item">
-          <a href="#">FAQ</a>
-        </li>
+      <p>&copy; Warriors Labs.</p>
       </ul>
     </div>
   </footer>

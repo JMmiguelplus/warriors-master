@@ -18,13 +18,51 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
+
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
-
   </head>
-
   <body id="page-top">
+    <?php
+    error_reporting(0);
+     $as = $_GET['modal'];
+     if($as == 1){
+   ?>
+   <script>
+   $(document).ready(function(){
+     $('#myModal').modal('show');
+   });
+  </script>
+   <?php
+ }else{
+   ?>
+   <script>
+   $(document).ready(function(){
+     $('#myModal').modal('hide');
+   });
+  </script>
+   <?php
+ }
+     ?>
+
+    <div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <center><h4 class="modal-title" id="modalTitle">Registrado Éxitosamente.</h4></center>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <img src="../Active licenses/img/gifP.gif" width="100%"><center></center >
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+    </div>
+
 
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
@@ -52,7 +90,7 @@
 
     <!-- Header -->
     <header class="masthead">
-      <div class="container">
+      <div class="container-one">
         <div class="intro-text">
           <div class="intro-lead-in"></div>
           <div class="intro-heading text-uppercase">Licencias Warriors</div>
@@ -88,7 +126,7 @@
               <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Licencia Full</h4>
-            <p class="text-muted">Características:
+            <p class="text-muted">Caracterìstica:
 									Soporte Técnico *via remota (9:00 am a 19:00pm) Sitio (9:00am a 18:00pm) Sabados (9:00 a 13:00),
 									Actualización,
 									Capacitación,
@@ -100,7 +138,7 @@
               <i class="fas fa-star fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Licencia Premium</h4>
-            <p class="text-muted">Características;
+            <p class="text-muted">Caracterìsticas;
 						         Soporte Técnico (9:00 a 19:00),
 								   Actualización,
 								   Capacitaciones,
@@ -121,25 +159,27 @@
               </div>
             </div>
             <div class="text-muted2">
+              <div class=" col-lg-5 ml-auto text-center flex">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.5306287055537!2d-99.13836098564555!3d19.389466086908836!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1fef84cf59ff9%3A0x5f71978a68a92d8b!2sWarriors%C2%AE!5e0!3m2!1ses!2smx!4v1551128144575" width="400" height="300" frameborder="" style="border:2" allowfullscreen></iframe>
+              </div>
               <div class="col-lg-5 ml-auto text-center">
+                <br><br>
                 <i class="fas fa-phone fa-3x mb-3 text-muted"></i>
                 <div>+52 (55) 55792273</div>
                 <br>
                 <i class="fas fa-at fa-3x mb-3 text-muted"></i>
-                <div>soporte@warri0rsdefender.com</div>
+                <div>soporte@warriorsdefender.com</div>
               </div>
-            </div>
           </div>
         </div>
         </section>
 
         <!-- Footer -->
-        <!-- Footer -->
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <span class="copyright">Powered By WarriorsLabs. All Rights Reserved.</span>
+          <span class="copyright1">Powered By WarriorsLabs. All Rights Reserved.</span>
         </div>
         <div class="col-md-4">
           <ul class="list-inline social-buttons">

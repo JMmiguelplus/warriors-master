@@ -20,8 +20,9 @@ function generarCodigo($longitud)
 }
 
 $pro = $_POST["producto"];
+$pro= strtoupper($pro);
 $des = $_POST["descripcion"];
-
+$des= strtoupper($des);
 //Genera Codigo de 8 digitos de forma aleatoria
 $list = $_POST['listac'];
 echo $list."<br>";
@@ -63,7 +64,9 @@ if($demo = 'Tipo de licencia' or $licencia ='Tipo de licencia' or $tiempo = '0')
 } else {
 
 $nombre = $_POST["nombre"];
+$nombre = strtoupper($nombre);
 $rfc= $_POST["rfc"];
+$rfc= strtoupper($rfc);
 $email= $_POST["email"];
 }
 //Guarda valor de la funcion que genera codigo de 8 digitos
@@ -117,7 +120,7 @@ $mail->SMTPAuth = true;
 
 $mail->setFrom($mail->Username,'Licencias Warriors');
 
-$mail->AddAddress('lukejimenez1@gmail.com');
+$mail->AddAddress('dsoporte3@warriorslabs.com');
 $mail->Subject = "Registro de Licencia";
 
 $mail->Body .= "<h1>Datos</h1>";
@@ -159,8 +162,6 @@ fwrite($archivo, $contenido . PHP_EOL);
 
 fclose($archivo);
 
-header('Location: index.php');
+header('Location: index.php?modal=1');
 
-//
-// header("location: formulario.php");
 ?>

@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 //CHECH IF USERNAME EXISTS
 if (isset($_POST))
 {

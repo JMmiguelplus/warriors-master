@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,17 +23,12 @@
 
     <script src="js/jquery-3.2.1.js"></script>
     <link href="sweetalert2.min.css" type="text/css" rel="stylesheet">
-
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/estilos.css">
   </head>
-
   <body id="page-top">
-
-
     <!-- Navigation -->
-
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <div id="logo"><a href="index.php"><img  src="img/logo2.png" alt="" width="195" height="100"></div></a>
@@ -51,7 +45,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="index.php">Regresar a la pagina Anterior </a>
+              <a class="nav-link js-scroll-trigger" href="index.php">Regresar</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact"></a>
@@ -60,18 +54,15 @@
         </div>
       </div>
     </nav>
-
     <!-- Header -->
     <header class="masthead imgback">
-      <div class="container">
+      <div class="container-one">
         <div class="intro-text">
           <div class="intro-lead-in"></div>
           <div class="intro-heading text-uppercase">Registro de Contrato</div>
         </div>
       </div>
     </header>
-
-
   <!-- Modal -->
   <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -84,7 +75,6 @@
           </div>
           <!--consulta de clientes-->
           <div class="modal-body">
-
             <div class="col-md-10">
               <label class="sr-only" for="inlineFormInputGroup"></label>
               <div class="input-group col-md-8 offset-md-3">
@@ -111,7 +101,6 @@
       </div>
     </div>
   </div>
-
 
   <div class="modal fade" id="checkModal" tabindex="-1" role="dialog" aria-labelledby="checkModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -184,7 +173,6 @@
       <div class="modal-content" id="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="checkModalLabel1">Sus licencias son:</h5>
-            <!--<span aria-hidden="true">&times;</span>-->
           </button>
         </div>
         <div class="modal-body">
@@ -223,7 +211,6 @@
 
 
   <script>
-
   $(document).ready(function(){//funcion para comprobar el codigo de la licencia
       $("#check").click(function(){
         var lic = document.getElementById('licencia').value;
@@ -261,11 +248,9 @@
                $('#com').html(res.men);
                $('#codi').html(res.cod);
 
-
                 var f = new Date();
                 var ff = new Date(res.fcf);
-                //console.log(ff);
-               // console.log(f);
+
                 if(f <= ff){
                   //console.log("activo");
                   $('#Stats').addClass("bg-success");
@@ -312,36 +297,21 @@
             })
             .fail(function( jqXHR, textStatus, errorThrown ) {
                 if (jqXHR.status === 0) {
-
                   alert('Not connect: Verify Network.');
-
                 } else if (jqXHR.status == 404) {
-
                   alert('Requested page not found [404]');
-
                 } else if (jqXHR.status == 500) {
-
                   alert('Internal Server Error [500].');
-
                 } else if (textStatus === 'parsererror') {
-
                   alert('Requested JSON parse failed.');
                   console.log(textStatus+" "+errorThrown);
-
                 } else if (textStatus === 'timeout') {
-
                   alert('Time out error.');
-
                 } else if (textStatus === 'abort') {
-
                   alert('Ajax request aborted.');
-
                 } else {
-
                   alert('Uncaught Error: ' + jqXHR.responseText);
-
                 }
-
             });
           }
         });
@@ -352,26 +322,23 @@
           document.getElementById("licencia").disabled = false;
         });
         var result = document.getElementById('lislicencia');
-        // function vaciar(){
           result.innerHTML = '';
         // }
       });
        </script>
-
     <!-- Services -->
     <section id="services">
       <div class="container">
         <div class="row">
           <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Contrato de Licencia</h2>
-            <h3 class="section-subheading text-muted">Ingrese Datos.</h3>
+            <h2 class="section-heading text-uppercase">Ingrese Datos</h2>
+            <h3 class="section-subheading text-muted"></h3>
           </div>
         </div>
         <div class="row">
           <div class="col-md-8 offset-md-2">
             <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-            <br>
-            <form id="contactForm" name="sentMessage" method="POST" action="insertar.php">
+            <form id="contactForm" name="sentMessage" method="POST" action="insertar.php" >
               <div class="col-md-10">
                 <label class="sr-only" for="inlineFormInputGroup"></label>
                 <div class="input-group col-md-8 offset-md-3">
@@ -385,13 +352,13 @@
                   </select>
                 </div>
               <div class="col-md-12">
-                  <div class='alert alert-warning  col-mod-20' id="msj">
+                  <center><div class='alerta alert-men  col-mod-20' id="msj">
                     <i class='fa fa-close'></i>
                     Ya  no es necesario llenar los campos "Nombre o Empresa","RFC","Email".
-                  </div>
+                  </div></center>
               </div>
               <br>
-              <div class="form-row" id="div3">
+              <div class="form-row1" id="div3">
                <div class="form-group col-md-6">
                  <div class="col-md-12">
                    <label class="sr-only" for="inlineFormInputGro">Nombre</label>
@@ -401,7 +368,7 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="nombre" name="nombre" onkeypress="return Sletras(event)" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="30" required>
+                     <input type="text" class="form-control" style="text-transform: uppercase;" id="nombre" name="nombre" onkeypress="return Sletras(event)" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="40" required>
                         <div id="checkusername" class=""></div>
                    </div>
                  </div>
@@ -431,7 +398,7 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" id="rfc" name="rfc" onkeypress="return Srfc(event)" placeholder="Escribe un RFC" maxlength="13" required>
+                    <input type="text" class="form-control" style="text-transform: uppercase;" id="rfc" name="rfc" onkeypress="return Srfc(event)"  placeholder="Escribe un RFC" maxlength="13" min="12" max="13" oninvalid="setCustomValidity('El RFC debe tener entre 12 y 13 caracteres.')" oninput="setCustomValidity('')"required/>
                        <div id="checkrfc" class=""></div>
                    </div>
                  </div>
@@ -461,7 +428,7 @@
                          <i class="fas fa-at"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="email" name="email"placeholder="Escribe un Email"  maxlength="40" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required/>
+                     <input type="text" class="form-control" id="email" name="email"placeholder="ESCRIBE UN EMAIL"  maxlength="40" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required/>
                     <div id="checkemailresponse" class=""></div>
                    </div>
                  </div>
@@ -474,9 +441,26 @@
                          <i class="fab fa-dropbox"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="pro" name="producto"placeholder="Producto"  maxlength="30"  required/>
+                     <input type="text" class="form-control" id="pro" style="text-transform: uppercase;" name="producto"placeholder="Producto" maxlength="10" onkeypress="return SletrasNum(event)" maxlength="30"  required/>
                    </div>
                  </div>
+                 <script type="text/javascript">
+                       function SletrasNum(e){
+                     key = e.keyCode || e.which;
+                        teclado= String.fromCharCode(key).toLowerCase();
+                        letras=" abcdefghijklmnopqrstuvwxyz1234567890-*/.";
+                        especiales="8-37-38-46-164";
+                        teclado_especial=false;
+                     for(var i in especiales){
+                          if(key==especiales[i]){
+                     teclado_especial=true;break;
+                     }
+                 }
+                   if(letras.indexOf(teclado)==-1 && !teclado_especial){
+                          return false;
+                     }
+                }
+                 </script>
                  <br>
                </div>
                <div class="form-group col-md-6">
@@ -488,7 +472,7 @@
                          <i class="fas fa-calendar"></i>
                        </div>
                      </div>
-                     <input id="datepicker" class="form-control" name="fecha" type="date" placeholder="Seleciona la Fecha de Inicio" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}"required/>
+                     <input id="datepicker" class="form-control" name="fecha" type="date" placeholder="Seleciona la Fecha de Inicio" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required/>
                    </div>
                  </div>
                  <br>
@@ -501,7 +485,6 @@
                        </div>
                      </div>
                      <select class="custom-select" onchange="getNewVal(this);" name="licencia" id="country" required/>
-
                        <option selected>Tipo de licencia </option>
                        <option value="Demo">Demo</option>
                        <option value="Licencia_Standar">Licencia Standart</option>
@@ -547,12 +530,12 @@
                      <br>
                        <div class="col-md-13">
                          <div class="form-group col-md-12 offset-md-4">
-                           <textarea class="form-control" id="message" placeholder="Nota:" name="descripcion" required="required" data-validation-required-message="Please enter a message."></textarea>
-                        <p class="help-block text-danger"></p>
-                </div>
-              </div>
-               </div>
-             </div>
+                           <textarea class="form-control" id="message" style="text-transform: uppercase;" placeholder="Nota:" name="descripcion" required="required" data-validation-required-message="Please enter a message."></textarea>
+                        </div>
+                      </div>
+                   </div>
+                 </div>
+
              <script>
              var namePattern = "^[a-z A-Z]{4,30}$";
              var rfcPattern = "[A-Za-z]{4,8}";
@@ -574,10 +557,8 @@
 	            });
               }
 
-
             $(function() {
             checkForm("#contactForm");
-
             });
 
             </script>
@@ -585,7 +566,6 @@
               <div class="col-md-5 offset-md-5">
                 <div id="success"></div>
                 <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
-
                 <div id="contenedor_errores"></div>
               </div>
             </form>
@@ -595,30 +575,21 @@
     </section>
 
    <script>
-
-
-      $(document).ready(function () {
+     $(document).ready(function () {
    $("#nombre").keyup(checarUsuarios);
-  });
-
-
+ });
      $(document).ready(function () {
    $("#nombre").change(checarUsuarios);
   });
       $(document).ready(function () {
    $("#rfc").keyup(checarrfc);
   });
-
-
      $(document).ready(function () {
    $("#rfc").change(checarrfc);
   });
-
      $(document).ready(function () {
    $("#email").keyup(checarEmails);
   });
-
-
      $(document).ready(function () {
    $("#email").change(checarEmails);
   });
@@ -638,12 +609,10 @@
   document.getElementById("checkusername").innerHTML = xhttp.responseText;
   usernameresponsed = document.getElementById('nombre').value;
 
-
-
   if (usernameresponsed=="1")
   {
 
-   if (emailresponsed)
+  if (emailresponsed)
    {
       emailresponsed=document.getElementById('emailchecker').value;
       if (emailresponsed=="1"){
@@ -668,8 +637,6 @@
   function checarEmails() {
 
   var email= document.getElementById('email').value;
-
-
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -697,13 +664,10 @@
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("email="+email+"");
 
-
   }
   function checarrfc() {
 
   var rfc= document.getElementById('rfc').value;
-
-
 
   var xhttp = new XMLHttpRequest();
   xhttp.onreadystatechange = function() {
@@ -730,8 +694,6 @@
   xhttp.open("POST", "checarrfc.php", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   xhttp.send("rfc="+rfc+"");
-
-
   }
   </script>
 
@@ -798,8 +760,13 @@
           }
     }
 
-
 </script>
+<div class="copyright py-4 text-center text-white">
+  <div class="container">
+    <small>Copyright &copy; Warriors labs</small>
+  </div>
+</div>
+
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
