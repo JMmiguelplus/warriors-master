@@ -201,7 +201,7 @@
                  </tbody>
                </table>
              <div class="modal-footer">
-             <button type="button" class="btn btn-primary" id="Ocultar">OK</button>
+             <button type="button" class="btn btn-primary" id="Ocultar" value="1">OK</button>
            </div>
          <span id="ASDF"></span>
         </div>
@@ -214,7 +214,7 @@
   $(document).ready(function(){//funcion para comprobar el codigo de la licencia
       $("#check").click(function(){
         var lic = document.getElementById('licencia').value;
-        // console.log("Consulc");
+
         var cl =  document.getElementById ('Consulc').value;
          if(  cl == 0 ){
            $.ajax({
@@ -252,7 +252,6 @@
                 var ff = new Date(res.fcf);
 
                 if(f <= ff){
-                  //console.log("activo");
                   $('#Stats').addClass("bg-success");
                   $('#Stats').html("Activo");
                 }else{
@@ -265,9 +264,12 @@
            .fail(function () {
              console.log("error");
            });
+
          }else{
+            $('#licencia').attr('readonly',false);
             $('#exampleModal').modal("hide");
             $('#checkModal1').modal("show");////////////Consulta de todoa las licencias del cliente
+
             $.ajax({
               type:"POST",
               url:"check1.php",
@@ -320,10 +322,13 @@
           $('#checkModal1').modal('hide');
           document.getElementById ('Consulc').value = 0;
           document.getElementById("licencia").disabled = false;
+
+          // document.getElementById ('Ocultar').value = 1;
+          // document.getElementById("licencia").disabled = true;
+
         });
         var result = document.getElementById('lislicencia');
           result.innerHTML = '';
-        // }
       });
        </script>
     <!-- Services -->
@@ -565,7 +570,7 @@
               <div class="clearfix"></div>
               <div class="col-md-5 offset-md-5">
                 <div id="success"></div>
-                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Contratar</button></center>
+                <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Enviar</button></center>
                 <div id="contenedor_errores"></div>
               </div>
             </form>
@@ -739,7 +744,7 @@
           $('#email').attr('readonly',false);
           $('#msj').hide();
         }
-        //console.log(asd);
+
       });
 
     });

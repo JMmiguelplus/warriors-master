@@ -113,7 +113,7 @@ $mail->Username = "warlab2019@gmail.com";
 $mail->Password = "WReporter19";
 
 $mail->SMTPSecure = "ssl";
-$mail->Host = "smtp.gmail.com";
+$mail->Host = "smtp.dscorp.com.mx";
 $mail->Port = 465;
 $mail->isSMTP();
 $mail->SMTPAuth = true;
