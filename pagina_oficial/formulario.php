@@ -19,8 +19,6 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-    <script src="sweetalert2.min.js" type="text/javascript"></script>
-
     <script src="js/jquery-3.2.1.js"></script>
     <link href="sweetalert2.min.css" type="text/css" rel="stylesheet">
     <!-- Custom styles for this template -->
@@ -31,7 +29,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <div id="logo"><a href="index.php"><img  src="img/logo2.png" alt="" width="195" height="100"></div></a>
+        <div id="logo"><img  src="img/logo2.png" alt="" width="195" height="100"></div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fas fa-bars"></i>
@@ -39,7 +37,6 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav text-uppercase ml-auto">
             <li class="nav-item">
-
               <a class="nav-link js-scroll-trigger" data-toggle="modal" data-target="#exampleModal">
                 estatus
               </a>
@@ -54,6 +51,7 @@
         </div>
       </div>
     </nav>
+
     <!-- Header -->
     <header class="masthead imgback">
       <div class="container-one">
@@ -69,7 +67,7 @@
       <div class="modal-content">
           <div class="modal-header">
             <h5 class="modal-title" id="exampleModalLabel">Ingrese su condigo de licencia o Conozca sus licencias contratadas en Warriors:</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button  type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -91,10 +89,9 @@
             </div>
             <center>o</center>
             <input type="text" class="form-control" name="licencia" id="licencia">
-
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
+            <button type="button" id="btncerrar" class="btn btn-outline-danger" data-dismiss="modal">Cerrar</button>
             <input  type="button" class="btn btn-outline-success" name="check" id="check" value="Verificar">
           </div>
         </form>
@@ -139,6 +136,10 @@
          <td id="pro"></td>
              </tr>
          <tr>
+          <th scope="row">Fecha de Registro:</th>
+         <td id="regi"></td>
+             </tr>
+         <tr>
           <th scope="row">Fecha Inicial:</th>
          <td id="feci"></td>
             </tr>
@@ -151,7 +152,7 @@
          <td id="lice"></td>
            </tr>
           <tr>
-          <th scope="row">Timepo:</th>
+          <th scope="row">Tiempo:</th>
          <td id="time"></td>
            </tr>
           <tr>
@@ -169,36 +170,36 @@
     </div>
   </div>
   <div class="modal fade" id="checkModal1" tabindex="-1" role="dialog" aria-labelledby="checkModalLabel1" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content" id="modal-content">
+    <div class="modal-dialog " role="document">
+      <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="checkModalLabel1">Sus licencias son:</h5>
           </button>
         </div>
         <div class="modal-body">
           <div id="DatosLic"></div>
-           <table class="table table-hover table-responsive table-ms table-dark" id="tablalic"  ><!--DATOS LICENCIAS-->
-
+           <table class="table  table-sm table-striped table-dark" id="tablalic">
+             <!--DATOS LICENCIAS-->
          <tbody>
+             <tr>
+               <th scope="row">Nombre:</th>
+              <td colspan="4"id="name"></td>
+            </tr>
           <tr>
-            <th scope="row">Nombre:</th>
-            <td id="name"></td>
-              </tr>
+             <th scope="row">RFC:</th>
+              <td colspan="4"id="RFC"></td>
+             </tr>
           <tr>
-          <th scope="row">RFC:</th>
-         <td id="RFC"></td>
+             <th scope="row">Email:</th>
+              <td colspan="4"id="correo"></td>
              </tr>
-         <tr>
-          <th scope="row">Email:</th>
-         <td id="correo"></td>
-             </tr>
-         <tr>
-          <th scope="row">Sus licencias en Warriors:</th>
-         <td id="lislicencia"></td>
-          <th scope="row">Equipo:</th>
-         <td id="lispro"></td>
-                    </tr>
-                 </tbody>
+          <tr>
+             <th scope="row">Sus licencias en Warriors:</th>
+                  <td colspan=""id="lislicencia"></td>
+                      <th scope="row">Equipo:</th>
+                         <td colspan="3"id="lispro"></td>
+                      </tr>
+                  </tbody>
                </table>
              <div class="modal-footer">
              <button type="button" class="btn btn-primary" id="Ocultar" value="1">OK</button>
@@ -209,12 +210,10 @@
     </div>
   </div>
 
-
   <script>
   $(document).ready(function(){//funcion para comprobar el codigo de la licencia
       $("#check").click(function(){
         var lic = document.getElementById('licencia').value;
-
         var cl =  document.getElementById ('Consulc').value;
          if(  cl == 0 ){
            $.ajax({
@@ -228,7 +227,7 @@
            })
            .done(function (res) {
              if (res == 101) {
-               alert('Coloque su Licencia');
+               alert('Coloque el codigo de la Licencia o seleccione un nombre');
              } else if(res == 102) {
                alert('Error al ejecutar su consulta')
              } else if(res == 103) {
@@ -241,10 +240,11 @@
                $('#rfcc').html(res.rfc);
                $('#emai').html(res.mai);
                $('#pro').html(res.proc);
+               $('#regi').html(res.resg);
                $('#feci').html(res.fci);
                $('#fecf').html(res.fcf);
                $('#lice').html(res.lic);
-               $('#time').html(res.tim);
+               $('#time').html(res.tim+" dias");
                $('#com').html(res.men);
                $('#codi').html(res.cod);
 
@@ -284,13 +284,15 @@
                 $("#name").html(res2[0][1]);
                 $("#RFC").html(res2[0][2]);
                 $("#correo").html(res2[0][3]);
-                var ted = document.getElementById('lislicencia');
-                var ted1 = document.getElementById('lispro');
-                ted.innerHTML = '';
-                ted1.innerHTML = '';
+                 var ted = document.getElementById('lislicencia');
+                 var ted1 = document.getElementById('lispro');
+                // var ted2 = document.getElementById('licencia');
+                 ted.innerHTML = '';
+                 ted1.innerHTML = '';
+                // ted2.innerHTML = '';
                 $.each(res2,function (i, item){
                   console.log(item[6]);
-                  $("#lislicencia").append(item[7]+"<br>");
+                  $("#lislicencia").append(item[8]+"<br>");
                 });
                 $.each(res2,function (i, item){
                   console.log(item[6]);
@@ -323,9 +325,6 @@
           document.getElementById ('Consulc').value = 0;
           document.getElementById("licencia").disabled = false;
 
-          // document.getElementById ('Ocultar').value = 1;
-          // document.getElementById("licencia").disabled = true;
-
         });
         var result = document.getElementById('lislicencia');
           result.innerHTML = '';
@@ -343,6 +342,7 @@
         <div class="row">
           <div class="col-md-8 offset-md-2">
             <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+            <br>
             <form id="contactForm" name="sentMessage" method="POST" action="insertar.php" >
               <div class="col-md-10">
                 <label class="sr-only" for="inlineFormInputGroup"></label>
@@ -357,10 +357,10 @@
                   </select>
                 </div>
               <div class="col-md-12">
-                  <center><div class='alerta alert-men  col-mod-20' id="msj">
-                    <i class='fa fa-close'></i>
-                    Ya  no es necesario llenar los campos "Nombre o Empresa","RFC","Email".
-                  </div></center>
+                <div class='alerta alert-men  col-mod-20' id="msj">
+                       <i class='fa fa-close'></i>
+                      Ya  no es necesario llenar los campos "Nombre o Empresa","RFC","Email".
+                  </div>
               </div>
               <br>
               <div class="form-row1" id="div3">
@@ -373,7 +373,7 @@
                          <i class="fas fa-user"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" style="text-transform: uppercase;" id="nombre" name="nombre" onkeypress="return Sletras(event)" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="40" required>
+                     <input type="text" class="form-control" style="text-transform: uppercase;" id="nombre" name="nombre" onkeypress="return Sletras(event)" placeholder="Nombre y Apellidos o Empresa" minlength="4" maxlength="40" required/>
                         <div id="checkusername" class=""></div>
                    </div>
                  </div>
@@ -403,7 +403,7 @@
                          <i class="fas fa-file"></i>
                        </div>
                      </div>
-                    <input type="text" class="form-control" style="text-transform: uppercase;" id="rfc" name="rfc" onkeypress="return Srfc(event)"  placeholder="Escribe un RFC" maxlength="13" min="12" max="13" oninvalid="setCustomValidity('El RFC debe tener entre 12 y 13 caracteres.')" oninput="setCustomValidity('')"required/>
+                    <input type="text" class="form-control" style="text-transform: uppercase;" id="rfc" name="rfc" onkeypress="return Srfc(event)" title="Minimo 12,Maximo 13 Sin espacios" placeholder="Escribe un RFC" maxlength="13" minlength="12">
                        <div id="checkrfc" class=""></div>
                    </div>
                  </div>
@@ -446,7 +446,7 @@
                          <i class="fab fa-dropbox"></i>
                        </div>
                      </div>
-                     <input type="text" class="form-control" id="pro" style="text-transform: uppercase;" name="producto"placeholder="Producto" maxlength="10" onkeypress="return SletrasNum(event)" maxlength="30"  required/>
+                     <input type="text" class="form-control" id="pro" style="text-transform: uppercase;" name="producto" placeholder="Producto" maxlength="10" minlength="5" onkeypress="return SletrasNum(event)" title="Minimo 5 caractres maximo 10" required/>
                    </div>
                  </div>
                  <script type="text/javascript">
@@ -468,8 +468,8 @@
                  </script>
                  <br>
                </div>
-               <div class="form-group col-md-6">
-                 <div class="col-md-12">
+                <div class="form-group col-md-6">
+                 <!-- <div class="col-md-12">
                    <label class="sr-only" for="inlineFormInputGroup"></label>
                    <div class="input-group col-md-12 offset-md-4">
                      <div class="input-group-prepend">
@@ -479,11 +479,11 @@
                      </div>
                      <input id="datepicker" class="form-control" name="fecha" type="date" placeholder="Seleciona la Fecha de Inicio" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'mm/dd/yyyy';}" required/>
                    </div>
-                 </div>
+                 </div> -->
                  <br>
                  <div class="col-md-12">
                    <label class="sr-only" for="inlineFormInputGroup"></label>
-                   <div class="input-group col-md-12 offset-md-4">
+                   <div class="input-group col-md-12 offset-md-3">
                      <div class="input-group-prepend">
                        <div class="input-group-text">
                          <i class="fas fa-file-signature"></i>
@@ -501,13 +501,13 @@
                  <br>
                  <div class="col-md-12" id="div1">
                    <label class="sr-only" for="inlineFormInputGroup"></label>
-                   <div class="input-group col-md-12 offset-md-4">
+                   <div class="input-group col-md-12 offset-md-3">
                      <div class="input-group-prepend">
                        <div class="input-group-text">
                          <i class="far fa-credit-card"></i>
                        </div>
                      </div>
-                     <select class="custom-select" name="demo" required/>
+                     <select class="custom-select" name="tiempo" required/>
                        <option disabled selected>Tiempo del DEMO</option>
                        <option value="30">30 Dias</option>
                        <option value="40">40 Dias</option>
@@ -518,7 +518,7 @@
                    <br>
                    <div class="col-md-12" id="div2">
                      <label class="sr-only" for="inlineFormInputGroup"></label>
-                     <div class="input-group col-md-12 offset-md-4">
+                     <div class="input-group col-md-12 offset-md-3">
                        <div class="input-group-prepend">
                          <div class="input-group-text">
                            <i class="fas fa-clock"></i>
@@ -526,15 +526,15 @@
                        </div>
                        <select class="custom-select"name="tiempo" required/>
                          <option disabled selected>Tiempo</option>
-                         <option value="1">1 año</option>
-                         <option value="2">2 años</option>
-                         <option value="3">3 años</option>
+                         <option value="365">1 año</option>
+                         <option value="730">2 años</option>
+                         <option value="1095">3 años</option>
                        </select>
                      </div>
                    </div>
                      <br>
-                       <div class="col-md-13">
-                         <div class="form-group col-md-12 offset-md-4">
+                       <div class="col-md-12">
+                         <div class="form-group col-md-12 offset-md-3">
                            <textarea class="form-control" id="message" style="text-transform: uppercase;" placeholder="Nota:" name="descripcion" required="required" data-validation-required-message="Please enter a message."></textarea>
                         </div>
                       </div>
@@ -568,7 +568,7 @@
 
             </script>
               <div class="clearfix"></div>
-              <div class="col-md-5 offset-md-5">
+              <div class="col-md-6 offset-md-3">
                 <div id="success"></div>
                 <center><button  class="btn btn-primary btn-xl text-uppercase" type="submit" name="contratar" id="enviar" value="Contratar">Enviar</button></center>
                 <div id="contenedor_errores"></div>
@@ -604,7 +604,7 @@
   var namelenght = nombre.length;
   if (namelenght<4)
   {
-  document.getElementById("checkusername").innerHTML="<i class='fa fa-close'></i> Nombre de usuario por lo menos de 4 caracteres <input id='usernamechecker' type='hidden' value='0' name='usernamechecker'> ";
+  document.getElementById("checkusername").innerHTML="<i class='fa fa-close'></i>  <input id='usernamechecker' type='hidden' value='0' name='usernamechecker'> ";
 
   }
   else {

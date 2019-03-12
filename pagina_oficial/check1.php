@@ -24,13 +24,7 @@ echo $QW = json_encode($qwe);
 
 $rows = pg_num_rows($res2);
   if ($rows >= '1') {
-    // while ($row = pg_fetch_row($res2)) {
-    //   $reg['fci'] = $row[0];
-    //   $reg['fcf'] = $row[1];
-    //   $reg['lic'] = $row[2];
-    //   $reg['tim'] = $row[3];
-    // }
-    //echo json_encode($reg);
+
   } else {
     echo "103";
   }

@@ -17,7 +17,6 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
-
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.3.js"></script>
 
     <!-- Custom styles for this template -->
@@ -77,8 +76,11 @@
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger"></a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="formulario.php">Contratar licencia</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Registro o Activacion</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="form.php">Registro de licencia </a>
+              <a class="dropdown-item" href="../Active licenses/index.php">Activacion de Licencia</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#contact">Contactanos</a>
@@ -113,9 +115,9 @@
               <i class="fas fa-circle fa-stack-2x text-primary"></i>
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
-            <h4 class="service-heading">Licencia Standard</h4>
+            <h4 class="service-heading">Licencia Standar</h4>
             <p class="text-muted">Caracterìsticas:
-								 Soporte Técnico via remota (mail)8x3,
+								 Soporte Técnico via remota,
 								Actualizaciones del sistema,
 								Monitoreo en tiempo real,
 								Garantia por un Año.</p>

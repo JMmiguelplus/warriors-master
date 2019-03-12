@@ -26,8 +26,6 @@ $des= strtoupper($des);
 //Genera Codigo de 8 digitos de forma aleatoria
 $list = $_POST['listac'];
 echo $list."<br>";
-
-$fecha = $_POST["fecha"];
 if (isset($_POST["demo"])) {
   $demo = $_POST["demo"];
 } else {
@@ -55,7 +53,7 @@ if ($list > 0) {
   $rfc= $dat[0]["rfc"];
   $email= $dat[0]["email"];
 
-if($demo = 'Tipo de licencia' or $licencia ='Tipo de licencia' or $tiempo = '0'){
+if($demo ='Tipo de licencia' or $licencia ='Tipo de licencia' or $tiempo = '0'){
   echo "ESTOS CAMPOS ESTAN VACIOS";
 }else{
   echo "CAMPOS LLENOS CORRECTAMENTE";
@@ -69,33 +67,18 @@ $rfc= $_POST["rfc"];
 $rfc= strtoupper($rfc);
 $email= $_POST["email"];
 }
-//Guarda valor de la funcion que genera codigo de 8 digitos
+//Guarda valor de la funcion que genera codigo de 15 digitos
 $codigo = generarCodigo(15);
-
-$fi = $fecha.' ';
-
-if($demo == 30 or $demo == 40 or $demo == 90){
-  $dat="days";
-  $fecha = date_create($fecha);
-  date_add($fecha,date_interval_create_from_date_string($demo.' '.$dat));
-  $ff = date_format($fecha,'Y-m-d').' ';
-  $tiempo = $demo;
-} else{
-  $dat= "years";
-  $fecha = date_create($fecha);
-  date_add($fecha,date_interval_create_from_date_string($tiempo.' '.$dat));
-  $ff = date_format($fecha,'Y-m-d').' ';
-}
 
 //concatenacion de letras para generar el codigo
 $cod = 'WL-'.$codigo.date("Y");
 
-$insertLicence = "INSERT INTO datos1(nombre,rfc, email, producto, fecha_inicio,fecha_final,licencia,tiempo,descripcion,codigo) VALUES ('$nombre','$rfc','$email','$pro','$fi','$ff','$licencia','$tiempo','$des','$cod')";
+$dia = date('d-'.'m-'.'Y');
+$insertLicence = "INSERT INTO datos1(nombre,rfc, email, producto,fecha_registro,licencia,tiempo,descripcion,codigo) VALUES ('$nombre','$rfc','$email','$pro','$dia','$licencia','$tiempo','$des','$cod')";
 
 
 //header('Location: formulario.php');
 
-//echo "<br><br>".$insertLicence;
 //Insersiones a BD
 $var1 = pg_query($conexion, $insertLicence) or die ("Algo ha ido mal en la consulta a la base de datos");
 
@@ -109,27 +92,28 @@ $mail = new PHPMailer();
 
 
 try {
-$mail->Username = "warlab2019@gmail.com";
-$mail->Password = "WReporter19";
+$mail->Username = "dsoporte3@warriorslabs.com";
+$mail->Password = "D$0p0rt332018";
 
 $mail->SMTPSecure = "ssl";
-$mail->Host = "smtp.dscorp.com.mx";
+$mail->Host = "linx4.dscorp.com.mx";
 $mail->Port = 465;
 $mail->isSMTP();
 $mail->SMTPAuth = true;
 
 $mail->setFrom($mail->Username,'Licencias Warriors');
 
-$mail->AddAddress('dsoporte3@warriorslabs.com');
+$mail->AddAddress('desarrollo12@warriorslabs.com');
 $mail->Subject = "Registro de Licencia";
 
-$mail->Body .= "<h1>Datos</h1>";
+$mail->Body .= "<h1>Datos del Registro</h1>";
 $mail->Body .= "Nombre:".$nombre."<br>";
 $mail->Body .= "RFC:".$rfc."<br>";
-$mail->Body .= "Email:".$email."<br>";
-$mail->Body .= "Fecha de Inicio:".$fi."<br>";
-$mail->Body .= "Fecha de Final:".$ff."<br>";
+$mail->Body .= "Correo:".$email."<br>";
+$mail->Body .= "Fecha de Registro:".$dia."<br>";
 $mail->Body .= "Tipo de licencia:".$licencia."<br>";
+$mail->Body .= "Tiempo de contrato:".$tiempo."<br>";
+$mail->Body .= "Producto:".$pro."<br>";
 $mail->Body .= "Codigo de la licencia:".$cod."<br>";
 
 $mail->IsHTML(true);

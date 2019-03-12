@@ -20,12 +20,13 @@ if (!$res) {
       $reg['rfc'] = $row[2];
       $reg['mai'] = $row[3];
       $reg['proc'] = $row[4];
-      $reg['fci'] = $row[5];
-      $reg['fcf'] = $row[6];
-      $reg['lic'] = $row[7];
-      $reg['tim'] = $row[8];
-      $reg['men'] = $row[9];
-      $reg['cod'] = $row[10];
+      $reg['resg'] = $row[5];
+      $reg['fci'] = $row[6];
+      $reg['fcf'] = $row[7];
+      $reg['lic'] = $row[8];
+      $reg['tim'] = $row[9];
+      $reg['men'] = $row[10];
+      $reg['cod'] = $row[11];
     }
     echo json_encode($reg);
   }else {

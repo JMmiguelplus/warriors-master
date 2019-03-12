@@ -98,7 +98,7 @@
                $('#feci').html(res.fci);
                $('#fecf').html(res.fcf);
                $('#lice').html(res.lic);
-               $('#time').html(res.tim);
+               $('#time').html(res.tim+" dias");
                setTimeout(function(){
                  $("#exampleModal").modal('show');
                },100);
@@ -126,7 +126,6 @@
     </div>
   </div>
 </div>
-
 
   <header class="masthead">
     <div class="container h-100">
@@ -162,7 +161,7 @@
           </thead>
           <tbody>
             <tr>
-              <td rowspan="4" id="nomb"></td>
+              <td rowspan="4"id="nomb"></td>
               <td rowspan="4"id="lice"></td>
               <td rowspan="4"id="pro"></td>
               <td rowspan="4"id="time"></td>
@@ -193,6 +192,7 @@
       </div>
     </div>
   </header>
+
 
   <footer>
     <div class="container">
