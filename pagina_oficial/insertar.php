@@ -39,7 +39,7 @@ if (isset($_POST["tiempo"])){
 $licencia = $_POST["licencia"];
 
 if ($list > 0) {
-  $consulta = pg_query($conexion, "SELECT * FROM datos1 where id_datos=".$list);
+  $consulta = pg_query($conexion, "SELECT * FROM datos where id_datos=".$list);
   while($row = pg_fetch_array($consulta,null,PGSQL_ASSOC))
   {
     $reg["id_datos"] = $row["id_datos"];
@@ -74,7 +74,7 @@ $codigo = generarCodigo(15);
 $cod = 'WL-'.$codigo.date("Y");
 
 $dia = date('d-'.'m-'.'Y');
-$insertLicence = "INSERT INTO datos1(nombre,rfc, email, producto,fecha_registro,licencia,tiempo,descripcion,codigo) VALUES ('$nombre','$rfc','$email','$pro','$dia','$licencia','$tiempo','$des','$cod')";
+$insertLicence = "INSERT INTO datos(nombre,rfc, email, producto,fecha_registro,licencia,tiempo,descripcion,codigo) VALUES ('$nombre','$rfc','$email','$pro','$dia','$licencia','$tiempo','$des','$cod')";
 
 
 //header('Location: formulario.php');

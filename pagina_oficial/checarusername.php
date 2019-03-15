@@ -11,7 +11,7 @@ if (isset($_POST))
     $pdo = new PDO("pgsql:host=localhost;dbname=registros", "postgres", "12345");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare('SELECT COUNT(*) nombre FROM datos1 WHERE nombre = :nombre');
+    $stmt = $pdo->prepare('SELECT COUNT(*) nombre FROM datos WHERE nombre = :nombre');
     $stmt->execute(array('nombre' => $usernameposted));
     $numdefilas = $stmt->fetchColumn();
 

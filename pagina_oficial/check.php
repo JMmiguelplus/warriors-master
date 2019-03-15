@@ -6,7 +6,7 @@ if (empty($_POST['licencia'])) {
   // creación de la conexión a la base de datos con pg_connect()
   $conexion = pg_connect($cadena) or die ("No se ha podido conectar al servidor de Base de datos");
   $lic = $_POST['licencia'];
-  $sql = "SELECT * FROM datos1 where codigo = '".$lic."'";
+  $sql = "SELECT * FROM datos where codigo = '".$lic."'";
   $res = pg_query($conexion,$sql)  or die ("Algo ha ido mal en la consulta a la base de datos");
   $rows = pg_num_rows($res);
 

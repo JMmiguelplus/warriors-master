@@ -9,7 +9,7 @@ if(empty($_POST['licencia'])) {
     $cadena ="host='localhost' port='5432' dbname='registros' user='postgres' password='12345'";
     // creación de la conexión a la base de datos con pg_connect()
     $conexion = pg_connect($cadena) or die ("No se ha podido conectar al servidor de Base de datos");
-    $sql = "SELECT * FROM datos1 where codigo = '".$lic."'";
+    $sql = "SELECT * FROM datos where codigo = '".$lic."'";
     $res = pg_query($conexion,$sql)  or die ("Algo ha ido mal en la consulta a la base de datos");
     $rows = pg_num_rows($res);
     if($rows == 1) {
@@ -30,7 +30,7 @@ if(empty($_POST['licencia'])) {
   $cadena ="host='localhost' port='5432' dbname='registros' user='postgres' password='12345'";
   // creación de la conexión a la base de datos con pg_connect()
   $conexion = pg_connect($cadena) or die ("No se ha podido conectar al servidor de Base de datos");
-  $sql = "SELECT * FROM datos1 where codigo = '".$lic."'";
+  $sql = "SELECT * FROM datos where codigo = '".$lic."'";
   $res = pg_query($conexion,$sql)  or die ("Algo ha ido mal en la consulta a la base de datos");
   $rows = pg_num_rows($res);
   if($rows == 1) {
@@ -44,7 +44,7 @@ if(empty($_POST['licencia'])) {
         $dias = $reg["tim"];
         $fci = date('d-m-Y');
         $fcf = date('d-m-Y',strtotime($fci."+".$dias."days"));
-        $update = "UPDATE datos1 SET fecha_inicio = '$fci', fecha_final = '$fcf' WHERE codigo = '$lic'";
+        $update = "UPDATE datos SET fecha_inicio = '$fci', fecha_final = '$fcf' WHERE codigo = '$lic'";
         if(pg_query($conexion,$update)){
           consulta($lic);
         }

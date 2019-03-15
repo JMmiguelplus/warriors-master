@@ -1,9 +1,5 @@
 <?php
-
-//CONNECT TO PDO
-
-
-//CHECH IF USERNAME EXISTS
+//CHECAR EL NOMBRE EN LA BD
 if (isset($_POST))
 {
     $emailposted=$_POST["email"];
@@ -15,7 +11,7 @@ try {
     $db = new PDO("pgsql:host=localhost;dbname=registros", "postgres", "12345");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $db->prepare('SELECT count(*) email FROM datos1 WHERE email = :email');
+    $stmt = $db->prepare('SELECT count(*) email FROM datos WHERE email = :email');
     $stmt->execute(array('email' => $emailposted));
     $numdefilas = $stmt->fetchColumn();
 
@@ -32,6 +28,6 @@ try {
       echo "<div class='alert alert-danger '><i class='fa fa-close'></i> Email Registrado Anteriormente  <input id='emailchecker' type='hidden' value='0' name='emailchecker'></div>";
     }
 } else {
-      
+
   }
 }

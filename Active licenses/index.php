@@ -57,57 +57,6 @@
     </div>
   </div>
 </div>
-<script>
-
-  $(document).ready(function(){//funcion para comprobar el codigo de la licencia
-      $("#check").click(function(){
-        var lic = document.getElementById('activar').value;
-           $.ajax({
-             type:"POST",
-             url:"check.php",
-             data:{licencia:lic},
-             dataType: "JSON",
-             beforeSend: function() {
-               $("#check").val("Comprobando...");
-               $("#imagen").show();
-               $("#mensaje").html('Activando..');
-             }
-           })
-           .done(function(respuesta){
-             $('#imagen').hide();
-             if(respuesta == 1){
-               $('mensaje').html('hola');
-             }
-             else{
-               $('#mensaje').html('Ingresa un Codigo');
-             }
-           }
-         )
-           .done(function (res) {
-             if (res == 101) {
-             } else if(res == 102) {
-               alert('Error al ejecutar su consulta')
-             } else if(res == 103) {
-               alert('La licencia '+lic+' no concuerda con ninguna en el sistema. Por favor vuelva a ingresar su licencia correctamente.');
-             } else {
-               $('#check').val('Verificar');
-               $('#insert').modal('hide');
-               $('#table-one').val('show');
-               $('#nomb').html(res.nom);
-               $('#pro').html(res.proc);
-               $('#feci').html(res.fci);
-               $('#fecf').html(res.fcf);
-               $('#lice').html(res.lic);
-               $('#time').html(res.tim+" dias");
-               setTimeout(function(){
-                 $("#exampleModal").modal('show');
-               },100);
-           }
-         });
-       })
-     })
-
-      </script>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -117,11 +66,11 @@
         <h5 class="modal-title" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" ></div>
-      <div class="ima-body"><img src="img/cor.png">Licencia Activada </div><br>
-      <div class="modal-footer">
+            </button>
+             </div>
+  <div class="modal-body" ></div>
+    <div class="ima-body"><img src="img/cor.png">Licencia Activada </div><br>
+        <div class="modal-footer">
       </div>
     </div>
   </div>
@@ -147,17 +96,17 @@
   </tbody>
 </table>
 <p>
-          <table class="table table-sm table-responsive table-bordered table-dark" id="table-one" name="table-one">
-          <thead>
-            <tr>
-              <th scope="col">Nombre</th>
-              <th scope="col">Licencia</th>
-              <th scope="col">Equipo</th>
-              <th scope="col">Tiempo</th>
-              <th scope="col">Fecha inicial</th>
-              <th scope="col">Fecha Final</th>
-              <th scope="col">*Servicios</th>
-            </tr>
+  <table class="table table-sm table-responsive table-bordered table-dark" id="table-one" name="table-one">
+     <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Licencia</th>
+          <th scope="col">Equipo</th>
+          <th scope="col">Tiempo</th>
+          <th scope="col">Fecha inicial</th>
+          <th scope="col">Fecha Final</th>
+          <th scope="col">*Servicios</th>
+          </tr>
           </thead>
           <tbody>
             <tr>
@@ -210,6 +159,8 @@
 
   <!-- Custom scripts for this template -->
   <!--<script src="js/new-age.min.js"></script>-->
+  <script src="js/scripts.js"></script>
+
 
 </body>
 

@@ -11,7 +11,7 @@ if (isset($_POST))
     $pdo = new PDO("pgsql:host=localhost;dbname=registros", "postgres", "12345");
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    $stmt = $pdo->prepare('SELECT COUNT(*) rfc FROM datos1 WHERE rfc = :rfc');
+    $stmt = $pdo->prepare('SELECT COUNT(*) rfc FROM datos WHERE rfc = :rfc');
     $stmt->execute(array('rfc' => $usernameposted));
     $numdefilas = $stmt->fetchColumn();
 
