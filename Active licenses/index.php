@@ -51,7 +51,7 @@
       </div>
       <div class="modal-footer">
         <div id="alert"><img id="imagen" src="img/cargando.gif" ><span id="mensaje"></span></div>
-        <input type="submit" class="btn btn-outline-success" id="check" value="Verificar" ></input>
+        <input type="submit" class="btn btn-outline-success" id="check" value="Verificar"></input>
       </div>
     </form>
     </div>
@@ -106,29 +106,29 @@
           <th scope="col">Fecha inicial</th>
           <th scope="col">Fecha Final</th>
           <th scope="col">*Servicios</th>
-          </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td rowspan="4"id="nomb"></td>
-              <td rowspan="4"id="lice"></td>
-              <td rowspan="4"id="pro"></td>
-              <td rowspan="4"id="time"></td>
-              <td rowspan="4"id="feci"></td>
-              <td rowspan="4"id="fecf"></td>
-              <td class="bg-success">Soporte Tecnico</td>
             </tr>
-            <td class="bg-success">Monitoreo</td>
-          </tr>
+              </thead>
+            <tbody>
+            <tr>
+          <td rowspan="4"id="nomb"></td>
+          <td rowspan="4"id="lice"></td>
+          <td rowspan="4"id="pro"></td>
+          <td rowspan="4"id="time"></td>
+          <td rowspan="4"id="feci"></td>
+          <td rowspan="4"id="fecf"></td>
+          <td >Soporte Tecnico</td>
+            </tr>
+          <td >Monitoreo</td>
+            </tr>
           <tr>
-          <td class="bg-danger">Actuliazaciones</td>
-        </tr>
-          <tr>
-          <td class="bg-warning">Capacitacion</td>
-        </tr>
+              <td class="bg-danger">Actuliazaciones</td>
+             </tr>
+           <tr>
+           <td class="bg-warning">Capacitacion</td>
+              </tr>
             </table>
           </tbody>
-       </div>
+         </div>
         <div class="col-lg-5 my-auto">
           <div class="device-container">
                 <div class="screen">
@@ -141,7 +141,6 @@
       </div>
     </div>
   </header>
-
 
   <footer>
     <div class="container">

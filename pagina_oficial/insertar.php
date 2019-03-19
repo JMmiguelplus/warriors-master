@@ -139,7 +139,7 @@ $id = round(microtime(true) * 1000);
 
 $contenido = md5($nombre . "|" . $licencia);
 
-$archivo = fopen("licencia_warriors_" . $id . ".txt", "a") or die ("Error de captura");
+$archivo = fopen ("../pagina_oficial/Archivostxt/licencia_warriors_" . $id . ".txt", "a") or die ("Error de captura");
 
 fwrite($archivo,PHP_EOL ."$contenido");
 fwrite($archivo, $contenido . PHP_EOL);
