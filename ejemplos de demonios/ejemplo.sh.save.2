@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+SUBJECT=$1
+RECEIVER=$2
+TEXT=$3
+
+SERVER_PORT="linx4.dscorp.com.mx:465"
+SENDER="tu_email@tu_dominio.com
+"
+USER="tu_email@tu_dominio.com"
+PASSWORD="tu_contraseña"
+
+swaks --to $RECEIVER --from $SENDER --server $SERVER_PORT --auth LOGIN --auth-user $USER --auth-password $PASSWORD -tls --data "Date: %DATE%\nTo: %TO_ADDRESS%\nFrom: %FROM_ADDRESS%\nSubject: $SUBJECT %DATE%\nX-Mailer: swaks v$p_versionjetmore.org/john/code/swaks/\n%NEW_HEADERS%\n $TEXT \n"

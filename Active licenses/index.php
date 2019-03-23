@@ -129,6 +129,40 @@
             </table>
           </tbody>
          </div>
+      <!--nuevo modal  -->
+      <?php
+      $demodal = $_GET['id'];
+      if($demodal == 'Modal' or $demodal == 'Expirado'){
+      ?>
+      <script>
+      $(document).ready(function(){
+        $("#Modal").modal('show');
+      });
+      </script>
+      <?php
+      }
+      ?>
+      <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal1" id="exampleModalLabel">AVISO</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  </button>
+                   </div>
+                     <div class="modal-body"></div>
+                      <?php if($demodal == 'Modal'){ ?>
+                        <div class="modal1"><center>TU LICENCIA ESTA APUNTO DE TERMINAR</center></div><br>
+                      <?php } elseif ($demodal == 'Expirado') {?>
+                        <div class="modal2"><center>TU LICENCIA ACABA DE TERMINAR</center></div><br>
+                      <?php } ?>
+                        <div class="modal-footer">
+                     <button type="button" class="btn btn-outline-danger" data-dismiss="modal">ok</button>
+                  </div>
+               </div>
+            </div>
+        </div>
+
         <div class="col-lg-5 my-auto">
           <div class="device-container">
                 <div class="screen">
