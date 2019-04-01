@@ -92,8 +92,8 @@ $mail = new PHPMailer();
 
 
 try {
-$mail->Username = "dsoporte3@warriorslabs.com";
-$mail->Password = "D$0p0rt332018";
+$mail->Username = "desarrollo7@warriorslabs.com";
+$mail->Password = "D3s@rr01107WL2018";
 
 $mail->SMTPSecure = "ssl";
 $mail->Host = "linx4.dscorp.com.mx";
@@ -103,7 +103,7 @@ $mail->SMTPAuth = true;
 
 $mail->setFrom($mail->Username,'Licencias Warriors');
 
-$mail->AddAddress('desarrollo12@warriorslabs.com');
+$mail->AddAddress('dsoporte3@warriorslabs.com');
 $mail->Subject = "Registro de Licencia";
 
 $mail->Body .= "<h1>Datos del Registro</h1>";
