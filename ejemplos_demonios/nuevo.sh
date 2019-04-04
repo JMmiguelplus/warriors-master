@@ -7,7 +7,7 @@ SENDER="desarrollo6@warriorslabs.com"
 USER="desarrollo6@warriorslabs.com"
 PASSWORD="D3s@rr01106WL2018"
 
-retro="-u postgres -- psql -d registros -t -b"
+retro=" -u postgres  psql -d registros -t -b"
 
 while read -a row
 do

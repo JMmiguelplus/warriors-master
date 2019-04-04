@@ -18,8 +18,9 @@
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-
+  <script src="js/moment.min.js"></script>
   <!-- Plugin CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/locale/es.js">
   <link rel="stylesheet" href="device-mockups/device-mockups.min.css">
   <script src="vendor/jquery/jquery.min.js"></script>
 
@@ -110,28 +111,31 @@
               </thead>
             <tbody>
             <tr>
-          <td rowspan="4"id="nomb"></td>
-          <td rowspan="4"id="lice"></td>
-          <td rowspan="4"id="pro"></td>
-          <td rowspan="4"id="time"></td>
-          <td rowspan="4"id="feci"></td>
-          <td rowspan="4"id="fecf"></td>
-          <td >Soporte Tecnico</td>
+          <td rowspan="5"id="nomb"></td>
+          <td rowspan="5"id="lice"></td>
+          <td rowspan="5"id="pro"></td>
+          <td rowspan="5"id="time"></td>
+          <td rowspan="5"id="feci"></td>
+          <td rowspan="5"id="fecf"></td>
+          <td id="sp" >Soporte Tec</td>
             </tr>
-          <td >Monitoreo</td>
+          <td id="Mn">Monitoreo</td>
             </tr>
           <tr>
-              <td class="bg-danger">Actuliazaciones</td>
+              <td id="Ac">Actuliazaciones</td>
              </tr>
            <tr>
-           <td class="bg-warning">Capacitacion</td>
+           <td id="Cp">Capacitacion</td>
+              </tr>
+           <tr>
+           <td id="Ga">Garantia 1 año</td>
               </tr>
             </table>
           </tbody>
          </div>
       <!--nuevo modal  -->
        <?php
-      $demodal = $_GET['id'];
+      $demodal = isset($_GET['id']);
       if($demodal == 'Modal' or $demodal == 'Expirado'){
       ?>
       <script>
@@ -141,7 +145,7 @@
       </script>
        <?php
       }
-      ?> 
+      ?>
       <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">

@@ -117,9 +117,9 @@
             </span>
             <h4 class="service-heading">Licencia Standar</h4>
             <p class="text-muted">Caracterìsticas:
-								 Soporte Técnico via remota,
+								Soporte Técnico via remota 8x5,
 								Actualizaciones del sistema,
-								Monitoreo en tiempo real,
+								Monitoreo en tiempo real 8x5,
 								Garantia por un Año.</p>
           </div>
           <div class="col-md-4">
@@ -129,7 +129,7 @@
             </span>
             <h4 class="service-heading">Licencia Full</h4>
             <p class="text-muted">Caracterìstica:
-									Soporte Técnico *via remota (9:00 am a 19:00pm) Sitio (9:00am a 18:00pm) Sabados (9:00 a 13:00),
+									Soporte Técnico 10x5 *via remota (9:00 am a 19:00pm) Sitio (9:00am a 18:00pm) Sabados (9:00 a 13:00),
 									Actualización,
 									Capacitación,
 									Garantia por un año (Mesa de ayuda).</p>
@@ -141,7 +141,7 @@
             </span>
             <h4 class="service-heading">Licencia Premium</h4>
             <p class="text-muted">Caracterìsticas;
-						         Soporte Técnico (9:00 a 19:00),
+						       Soporte Técnico 10x5(9:00 a 19:00),
 								   Actualización,
 								   Capacitaciones,
 								   Garantia por un Año.</p>
