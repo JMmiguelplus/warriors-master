@@ -191,7 +191,7 @@
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
-        <div id="logo"><img src="img/logo2.png" alt="" width="195" height="100"></div>
+        <a href="index.php"><div id="logo"><img src="img/logo2.png" alt="" width="195" height="100"></div>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <!--Menu-->
           <i class="fas fa-bars"></i>
@@ -261,8 +261,8 @@
                         <i class="fa fa-user"></i>
                       </span>
                     </div>
-                    <input class="form-control" type="text" name="nombre" id="nombre" style="text-transform:uppercase;" placeholder="Nombre del cliente/Empresa" minlength="4" maxlength="40" required/>
-                    <div class="col-md-12 offset-md-1" id="checkusername"></div>
+                    <input class="form-control" type="text" name="nombre"  style="text-transform: uppercase;" onkeypress="return Sletras(event)"id="nombre" placeholder="Nombre del cliente/Empresa" minlength="4" maxlength="40" required/>
+                    <div id="checkusername" class="col-md-12"></div>
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -270,8 +270,8 @@
                         <i class="fa fa-file"></i>
                       </span>
                     </div>
-                    <input class="form-control" type="text" name="rfc" id="rfc" style="text-transform:uppercase;" placeholder="RFC" minlength="12" maxlength="13" title="Mínimo 12 y máximo 13, sin espacios" required/>
-                    <div class="col-md-12" id="checkrfc"></div>
+                    <input type="text" class="form-control" style="text-transform: uppercase;" id="rfc" name="rfc" onkeypress="return Srfc(event)" title="Minimo 12,Maximo 13 Sin espacios" placeholder="Escribe un RFC" maxlength="13" minlength="12" required>
+                    <div id="checkrfc" class="col-md-12"></div>
                   </div>
                   <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -279,7 +279,7 @@
                         <i class="fa fa-at"></i>
                       </span>
                     </div>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="Correo" required/>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="CORREO" pattern="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}" required/>
                     <div class="col-md-12" id="checkemailresponse"></div>
                   </div>
                 </div>

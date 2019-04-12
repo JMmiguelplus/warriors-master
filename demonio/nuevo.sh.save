@@ -1,0 +1,5 @@
+#!/bin/bash
+
+sudo -u postgres -- psql -d  registros -c "SELECT tiempo  FROM datos"
+
+notify-send "hola"  

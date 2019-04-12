@@ -25,7 +25,7 @@ $des = $_POST["descripcion"];
 $des= strtoupper($des);
 //Genera Codigo de 8 digitos de forma aleatoria
 $list = $_POST['listac'];
-echo $list."<br>";
+
 if (isset($_POST["demo"])) {
   $demo = $_POST["demo"];
 } else {
@@ -89,6 +89,7 @@ include 'PHPMailer/class.phpmailer.php';
 include 'PHPMailer/class.smtp.php';
 
 $mail = new PHPMailer();
+$meil = new PHPMailer();
 
 
 try {
@@ -103,9 +104,8 @@ $mail->SMTPAuth = true;
 
 $mail->setFrom($mail->Username,'Licencias Warriors');
 
-$mail->AddAddress('dsoporte3@warriorslabs.com');
+$mail->AddAddress('dsoporte3@warriorslabs.com');//DISTANATARIO
 $mail->Subject = "Registro de Licencia";
-
 $mail->Body .= "<h1>Datos del Registro</h1>";
 $mail->Body .= "Nombre:".$nombre."<br>";
 $mail->Body .= "RFC:".$rfc."<br>";
@@ -116,23 +116,50 @@ $mail->Body .= "Tiempo de contrato:".$tiempo."<br>";
 $mail->Body .= "Producto:".$pro."<br>";
 $mail->Body .= "Codigo de la licencia:".$cod."<br>";
 
-$mail->IsHTML(true);
+$meil->Username = "desarrollo7@warriorslabs.com";
+$meil->Password = "D3s@rr01107WL2018";
 
-if($mail->Send()){
-  ?>
-<script>
-  console.log('Enviado');
-</script>
-  <?
-} else {
-  ?>
-<script>
-  console.log('nel');
-</script>
-  <?
-}
+$meil->SMTPSecure = "ssl";
+$meil->Host = "linx4.dscorp.com.mx";
+$meil->Port = 465;
+$meil->isSMTP();
+$meil->SMTPAuth = true;
+
+$meil->setFrom($meil->Username,'Licencias Warriors');
+
+$meil->AddAddress($email);//DISTANATARIO
+
+$meil->IsHTML(true);
+$meil->Subject = "Registro de Licencia";
+
+$meil->MsgHTML('<table align="center" border="0" cellpadding="0" cellspacing="0" width="600" style="border-collapse: collapse;">//NOTA: LAS IMAGENES SE VERAN REFLEJADAS EN EL CORREO CUANDO EL PROYECTO YA ESTE EN EL SERVIDOR
+				<tr>
+					<td align="center" style="padding: 0px 0 40px 0;">
+						<img src="../pagina_oficial/img/email.jpg" width="100%" alt="" style="display: block;">
+					</td>
+				</tr>
+				<tr>
+				   <td style="padding: 60px 50px 60px 50px;color:#000;">
+						<h1>Bienvenido Warriors labs!</h1><br>
+						Gracias por confiar en nosotros, comunicate para validar tu registro
+						<br><br>
+					</td>
+				</tr>
+				<tr>
+					<td align="center" style="padding: 40px 0 0px 0;">
+						<img src="../pagina_oficial/img/footer.png" width="100%" style="display: block;">
+					</td>
+				</tr>
+				</table>'
+			);
+  if($mail->send() and $meil->send()){
+    echo 'Enviado';
+  } else {
+    echo 'Fallo';
+  }
 } catch(Exception $e){
  echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+ echo 'Message could not be sent. Mailer Error: ', $meil->ErrorInfo;
 }
 
 $id = round(microtime(true) * 1000);

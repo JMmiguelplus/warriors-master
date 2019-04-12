@@ -110,8 +110,8 @@ result.innerHTML = '';
 
 function Sletras(e){
   key = e.keyCode || e.which;
-  teclado= String.fromCharCode(key).toLowerCase();
-  letras=" abcdefghijklmnopqrstuvwxyz";
+  teclado= String.fromCharCode(key).toUpperCase();
+  letras=" ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   especiales="8-37-38-46-164";
   teclado_especial=false;
   for(var i in especiales){
@@ -125,8 +125,8 @@ function Sletras(e){
 }
 function Srfc(e){
   key = e.keyCode || e.which;
-  teclado= String.fromCharCode(key).toLowerCase();
-  letras=" abcdefghijklmnopqrstuvwxyz1234567890";
+  teclado= String.fromCharCode(key).toUpperCase();
+  letras="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
   especiales="8-37-38-46-164";
   teclado_especial=false;
   for(var i in especiales){
@@ -140,8 +140,8 @@ function Srfc(e){
 }
 function SletrasNum(e){
   key = e.keyCode || e.which;
-  teclado= String.fromCharCode(key).toLowerCase();
-  letras=" abcdefghijklmnopqrstuvwxyz1234567890-*/.";
+  teclado= String.fromCharCode(key).toUpperCase();
+  letras="ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-*/.";
   especiales="8-37-38-46-164";
   teclado_especial=false;
   for(var i in especiales){

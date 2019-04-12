@@ -51,7 +51,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <div id="alert"><img id="imagen" src="img/cargando.gif" ><span id="mensaje"></span></div>
+        <div id="alert"><span id="mensaje"></span></div>
+          <a href="../pagina_oficial/index.php" class="btn btn-danger">Cancelar</a>
         <input type="submit" class="btn btn-outline-success" id="check" value="Verificar"></input>
       </div>
     </form>
@@ -69,8 +70,8 @@
           <span aria-hidden="true">&times;</span>
             </button>
              </div>
-  <div class="modal-body" ></div>
-    <div class="ima-body"><img src="img/cor.png">Licencia Activada </div><br>
+           <div class="modal-body" ></div>
+           <div class="ima-body"><img src="img/cor.png">Licencia Activada </div><br>
         <div class="modal-footer">
       </div>
     </div>
@@ -96,7 +97,7 @@
     </tr>
   </tbody>
 </table>
-<p>
+<br>
   <table class="table table-sm table-responsive table-bordered table-dark" id="table-one" name="table-one">
      <thead>
         <tr>
@@ -158,7 +159,7 @@
                       <?php if($demodal == 'Modal'){ ?>
                         <div class="modal1"><center>TU LICENCIA ESTA APUNTO DE TERMINAR</center></div><br>
                       <?php } elseif ($demodal == 'Expirado') {?>
-                        <div class="modal2"><center>TU LICENCIA HA EXPIRADO</center></div><br>
+                        <!-- <div class="modal2"><center>TU LICENCIA HA EXPIRADO</center></div><br> -->
                       <?php } ?>
                         <div class="modal-footer">
                      <button type="button" class="btn btn-outline-danger" data-dismiss="modal">ok</button>
@@ -166,6 +167,26 @@
                </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleM" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+               <div class="modal-content">
+                 <div class="modal-header">
+                    <h5 class="modal1" id="exampleModalLabel">AVISO</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                 <span aria-hidden="true">&times;</span>
+                   </button>
+                     </div>
+                      <div class="modal-body"></div>
+                        <div class="modal1"><center>LICENCIA EXPIRADA "Renueva tu licencia"</center><br>
+                     </div>
+                    <div class="modal-footer">
+                 <button type="button" class="btn btn-warning" data-dismiss="modal">OK</button>
+              </div>
+           </div>
+         </div>
+      </div>
 
         <div class="col-lg-5 my-auto">
           <div class="device-container">

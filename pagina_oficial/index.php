@@ -116,7 +116,7 @@
               <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Licencia Standar</h4>
-            <p class="text-muted">Caracterìsticas:
+            <p class="text-muted">Características:
 								Soporte Técnico via remota 8x5,
 								Actualizaciones del sistema,
 								Monitoreo en tiempo real 8x5,
@@ -128,7 +128,7 @@
               <i class="fas fa-book-open fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Licencia Full</h4>
-            <p class="text-muted">Caracterìstica:
+            <p class="text-muted">Características:
 									Soporte Técnico 10x5 *via remota (9:00 am a 19:00pm) Sitio (9:00am a 18:00pm) Sabados (9:00 a 13:00),
 									Actualización,
 									Capacitación,
@@ -140,7 +140,7 @@
               <i class="fas fa-star fa-stack-1x fa-inverse"></i>
             </span>
             <h4 class="service-heading">Licencia Premium</h4>
-            <p class="text-muted">Caracterìsticas;
+            <p class="text-muted">Características;
 						       Soporte Técnico 10x5(9:00 a 19:00),
 								   Actualización,
 								   Capacitaciones,

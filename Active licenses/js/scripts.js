@@ -32,19 +32,18 @@ $(document).ready(function(){//funcion para comprobar el codigo de la licencia
                $('#check').val('Verificar');
                $('#insert').modal('hide');
                $('#table-one').val('show');
-               $('#nomb').html(res.nom);
-               $('#pro').html(res.proc);
-               $('#feci').html(res.fci);
-               $('#fecf').html(res.fcf);
-               $('#lice').html(res.lic);
-               $('#time').html(res.tim+" dias");
                var dia = new Date();
                var dia2 = res.fcf;
                var hoy = (dia.getMonth() + 1 ) + '-' + dia.getDate() + '-' + dia.getFullYear();
                var hoy2 = dia2.slice(6, 10) + "-" + dia2.slice(3, 5) + "-" + dia2.slice(0, 2);
                var tim = moment(hoy2).diff(hoy, 'days');
-               // console.log(tim+hoy2);
                if( tim <= 365  && tim >= 0 || tim <= 30  && tim >= 0 || tim <= 730  && tim >= 0 || tim <= 40  && tim >= 0 || tim <= 90  && tim >= 0 || tim <= 1095  && tim >= 0 ){
+                 $('#nomb').html(res.nom);
+                 $('#pro').html(res.proc);
+                 $('#feci').html(res.fci);
+                 $('#fecf').html(res.fcf);
+                 $('#lice').html(res.lic);
+                 $('#time').html(res.tim+" dias");
                  if('Demo' == res.lic){
                    $('#sp').addClass('bg-success');
                    $('#Cp').addClass('bg-success');
@@ -73,6 +72,9 @@ $(document).ready(function(){//funcion para comprobar el codigo de la licencia
                     $('#Ga').addClass('bg-success');
                     $('#Cp').addClass('bg-success');
                  }
+                 setTimeout(function(){
+                   $("#exampleModal").modal('show');
+                 },100);
                }else{
                  if('Demo' == res.lic){
                    $('#sp').addClass('bg-danger');
@@ -102,10 +104,11 @@ $(document).ready(function(){//funcion para comprobar el codigo de la licencia
                     $('#Ga').addClass('bg-danger');
                     $('#Cp').addClass('bg-danger');
                  }
+                 //$("#Modal").modal('show');
                }
-               setTimeout(function(){
-                 $("#exampleModal").modal('show');
-               },100);
+               if(tim < 0){
+                 $("#exampleM").modal('show');
+               }
            }
          });
        })

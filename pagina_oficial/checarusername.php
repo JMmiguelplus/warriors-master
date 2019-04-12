@@ -3,7 +3,7 @@
 //CHECH IF USERNAME EXISTS
 if (isset($_POST))
 {
-    $usernameposted=$_POST["nombre"];
+    $usernameposted=strtoupper($_POST["nombre"]);
     if (strlen($usernameposted)<4) {
     }
     else {
